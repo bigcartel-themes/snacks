@@ -1,0 +1,25 @@
+{% if errors != blank %}
+  <ul class="errors contact-errors">
+    {% for error in errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+{% if contact.sent %}
+  <p>Thanks! Your message has been sent and we'll get back to you soon.</p>
+{% else %}
+  <form action="/contact" method="post">
+    {{ contact | contact_input: 'name', tabindex: 1 }}
+    
+    {{ contact | contact_input: 'email', tabindex: 2 }}
+    
+    {{ contact | contact_input: 'subject', tabindex: 3 }}
+    
+    {{ contact | contact_input: 'message', tabindex: 4 }}
+  
+    {{ contact | contact_input: 'captcha', tabindex: 5 }} {{ contact.captcha }}
+
+    <button name="submit" type="submit" tabindex="6" title="Send message">Send message</button>
+  </form>
+{% endif %}

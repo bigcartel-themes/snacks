@@ -10,13 +10,13 @@
   ],
   "fonts": [
     {
-      "variable": "header_font",
-      "label": "Header Font",
+      "variable": "primary_font",
+      "label": "Primary Font",
       "default": "Inconsolata"
     },
     {
-      "variable": "text_font",
-      "label": "Text Font",
+      "variable": "secondary_font",
+      "label": "Secondary Font",
       "default": "Helvetica"
     }
   ],
@@ -28,7 +28,7 @@
     },
     {
       "variable": "text_color",
-      "label": "Text Color",
+      "label": "Text",
       "default": "#222222"
     }
   ],

@@ -1,0 +1,44 @@
+{
+  "name": "Snacks",
+  "version": "0.0.1",
+  "images": [
+    {
+      "variable": "logo",
+      "label": "Logo",
+      "description": "Adds your logo to the header"
+    }
+  ],
+  "fonts": [
+    {
+      "variable": "header_font",
+      "label": "Header Font",
+      "default": "Inconsolata"
+    },
+    {
+      "variable": "text_font",
+      "label": "Text Font",
+      "default": "Helvetica"
+    }
+  ],
+  "colors": [
+    {
+      "variable": "background_color",
+      "label": "Background",
+      "default": "#FAFAFA"
+    },
+    {
+      "variable": "text_color",
+      "label": "Text Color",
+      "default": "#222222"
+    }
+  ],
+  "options": [
+    {
+      "variable": "show_search",
+      "label": "Show search",
+      "type": "boolean",
+      "default": false,
+      "description": "Shows a search field"
+    }
+  ]
+}

@@ -6,39 +6,67 @@
       "variable": "logo",
       "label": "Logo",
       "description": "Adds your logo to the header"
+    },
+    {
+      "variable": "welcome_image",
+      "label": "Welcome image",
+      "description": "1200px by 800px images recommended"
     }
   ],
   "fonts": [
     {
       "variable": "primary_font",
       "label": "Primary Font",
-      "default": "Inconsolata"
-    },
-    {
-      "variable": "secondary_font",
-      "label": "Secondary Font",
-      "default": "Helvetica"
+      "default": "Open Sans"
     }
   ],
   "colors": [
     {
       "variable": "background_color",
       "label": "Background",
-      "default": "#FAFAFA"
+      "default": "#FFFFFF"
     },
     {
       "variable": "text_color",
       "label": "Text",
-      "default": "#222222"
+      "default": "#000000"
+    },
+    {
+      "variable": "accent_background_color",
+      "label": "Accent Background",
+      "default": "#000000"
+    },
+    {
+      "variable": "accent_text_color",
+      "label": "Accent Text",
+      "default": "#FFFFFF"
+    },
+    {
+      "variable": "error_color",
+      "label": "Errors",
+      "default": "#F83F53"
     }
   ],
   "options": [
     {
-      "variable": "show_search",
-      "label": "Show search",
-      "type": "boolean",
-      "default": false,
-      "description": "Shows a search field"
+      "variable": "welcome_header",
+      "label": "Welcome header",
+      "type": "text",
+      "description": "Welcome header for homepage"
+    },
+    {
+      "variable": "welcome_subheader",
+      "label": "Welcome subheader",
+      "type": "text",
+      "description": "Welcome subheader for homepage"
+    },
+    {
+      "variable": "products_per_page",
+      "label": "Products per page",
+      "type": "select",
+      "options": "1..100",
+      "default": 12,
+      "description": "The number of products shown per page"
     }
   ]
 }

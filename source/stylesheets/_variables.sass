@@ -2,9 +2,11 @@
 
 $background-color: #{"{{ theme.background_color }}"}
 $text-color: #{"{{ theme.text_color }}"}
+$accent-background-color: #{"{{ theme.accent_background_color }}"}
+$accent-text-color: #{"{{ theme.accent_text_color }}"}
+$error-color:  #{"{{ theme.error_color }}"}
 
-$primary-font: #{"{{ theme.primary_font }}"}
-$secondary-font: #{"{{ theme.secondary_font }}"}
+$primary-font: #{"{{ theme.primary_font | font_family }}"}
 
 @mixin vertical-align
   +transform(translateY(-50%))

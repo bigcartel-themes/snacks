@@ -1,1 +1,70 @@
 @import 'variables'
+
+.product-list
+  +flexbox
+  +flex-wrap(wrap)
+  +flex(flex-grow)
+  +flex-direction(row)
+  list-style: none
+  margin: 0
+  padding: 0
+
+.product-card
+  margin-bottom: 100px
+  max-width: 900px
+  position: relative
+  text-align: left
+  width: 100%
+  
+  &:nth-child(even)
+    margin-left: auto
+    text-align: right
+    
+    .product-info
+      right: 450px
+
+.product-accent
+  background: $accent-background-color
+  bottom: 0
+  height: 75px
+  width: 400px
+  z-index: 2
+
+.product-link
+  display: block
+  position: relative
+
+.product-image-holder
+  position: relative
+  max-width: 500px
+  width: 100%
+
+.product-image
+  display: block
+  width: 100%
+
+.product-info
+  background: $background-color
+  background: red
+  font-size: 18px
+  left: 450px
+  line-height: 18px
+  padding: 25px
+  position: absolute
+  text-transform: uppercase
+  top: 50px
+  width: 450px
+
+.product-price
+
+.product-name
+
+.product-status
+
+.status-text
+
+.pagination
+
+.paginate-info
+
+.empty-products

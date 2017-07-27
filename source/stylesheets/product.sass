@@ -1,1 +1,25 @@
 @import 'variables'
+
+
+.product-page
+  +flexbox
+  +align-items(flex-start)
+  +justify-content(flex-start)
+  
+.product-page-images
+  max-width: 600px
+  width: 100%
+
+  .product-images-list
+    list-style: none
+    margin: 0
+    padding: 0
+    
+  img
+    display: block
+    width: 100%
+
+.product-page-details
+  margin-left: auto
+  max-width: 500px
+  width: 100%

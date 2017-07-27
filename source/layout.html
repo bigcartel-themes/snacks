@@ -8,6 +8,79 @@
     {{ head_content }}
   </head>
   <body id="{{ page.permalink }}" class="{{ page.category }}">
+    <header class="header">
+      <div class="wrapper">
+        {% if theme.logo != blank %}
+          <a class="store-link" href="/" title="{{ store.name | escape }}"><img alt="{{ store.name | escape }}" src="{{ theme.images.logo.url | constrain: 600, 200 }}"></a>
+        {% else %}
+          <a class="store-link" href="/" title="{{ store.name | escape }}">{{ store.name }}</a>
+        {% endif %}
+        
+        <a class="open-overlay" href="#">Shop</a>
+      </div>
+    </header>
+    
+    <div class="content">
+      <div class="wrapper">
+        
+        {% if page.category == 'custom' %}
+          <h1 class="page-title">{{ page.name }}</h1>
+          <div class="page-content custom-page">
+            {{ page_content | paragraphs }}
+          </div>
+        {% else %}
+          {{ page_content }}
+        {% endif %}
+      </div>
+    </div>
+    
+    <footer class="footer">
+      <div class="wrapper">
+        <ul class="footer-links">
+          <li><a href="/products" title="Products">Products</a></li>
+          {% for page in pages.all limit: theme.nav_items %}
+            <li>{{ page | link_to }}</li>
+          {% endfor %}
+          {% if store.website != blank %}
+            <li><a href="{{ store.website }}">Back to site</a></li>
+          {% endif %}
+          <li><a href="/contact" title="Contact">Contact</a></li>
+        </ul>
+        {% if theme.twitter_url != blank or theme.facebook_url != blank or theme.instagram_url != blank or theme.tumblr_url != blank or theme.pinterest_url != blank %}
+          <ul class="footer-social-links">
+            {% if theme.instagram_url != blank %}
+              <li><a title="Instagram" href="{{ theme.instagram_url }}">Instagram</a></li>
+            {% endif %}
+            
+            {% if theme.twitter_url != blank %}
+              <li><a title="Twitter" href="{{ theme.twitter_url }}">Twitter</a></li>
+            {% endif %}
+            
+            {% if theme.facebook_url != blank %}
+              <li><a title="Facebook" href="{{ theme.facebook_url }}">Facebook</a></li>
+            {% endif %}
+    
+            {% if theme.pinterest_url != blank %}
+              <li><a title="Pinterest" href="{{ theme.pinterest_url }}">Pinterest</a></li>
+            {% endif %}
+            
+            {% if theme.tumblr_url != blank %}
+              <li><a title="Tumblr" href="{{ theme.tumblr_url }}">Tumblr</a></li>
+            {% endif %}
+          </ul>
+        {% endif %}
+        <div class="footer-credit">{{ bigcartel_credit }}</div>
+      </div>
+    </footer>
+    
+    <div class="overlay">
+      <ul>
+        <li><a href="/products" title="Products">Products</a></li>
+        {% for category in categories.active %}
+          <li>{{ category | link_to }}</li>
+        {% endfor %}
+      </ul>
+    </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{ 'api' | theme_js_url }}"></script>
     <script src="{{ theme | theme_js_url }}"></script>

@@ -24,10 +24,10 @@
               <img alt="Image of {{ product.name | escape }}" class="product-image" src="{{ product.image | product_image_url | constrain: '1000' }}">
             </div>
             <div class="product-info">
-              <div class="product-price">{{ product.default_price | money_with_sign }}</div>
               <div class="product-name">{{ product.name }}</div>
+              <div class="product-price">{{ product.default_price | money_with_sign }}</div>
               {% if product_status != blank %}
-                <div class="product-status"><div class="status-text">{{ product_status }}</div></div>
+                <div class="product-status">{{ product_status }}</div>
               {% endif %}
             </div>
           </a>

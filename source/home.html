@@ -1,13 +1,20 @@
-{% if theme.welcome_header != blank or theme.welcome_subheader != blank %}
-  <div class="welcome-text">
-    {% if theme.welcome_header != blank %}<h1 class="welcome-header">{{ theme.welcome_header }}</h1>{% endif %}
-    {% if theme.welcome_subheader != blank %}<h2 class="welcome-subheader">{{ theme.welcome_subheader }}</h2>{% endif %}
+{% if theme.welcome_image or theme.welcome_header != blank or theme.welcome_subheader != blank %}
+  <div class="home-welcome">
+    {% if theme.welcome_image %}
+      <img class="welcome-image" src="{{ theme.images.welcome_image.url | constrain: 2000,1400 }}">
+    {% endif %}
+    {% if theme.welcome_header != blank or theme.welcome_subheader != blank %}
+      <div class="welcome-message">
+        {% if theme.welcome_header != blank %}<h1 class="welcome-header">{{ theme.welcome_header }}</h1>{% endif %}
+        {% if theme.welcome_subheader != blank %}<h2 class="welcome-subheader">{{ theme.welcome_subheader }}</h2>{% endif %}
+      </div>
+    {% endif %}
   </div>
 {% endif %}
         
 {% paginate products from products.current by theme.products_per_page %}
   {% if products != blank %}
-    <ul class="product-list">
+    <ul class="home-products product-list">
       {% for product in products %}
         {% assign product_status = '' %}
         {% case product.status %}
@@ -19,19 +26,19 @@
         		{% assign product_status = 'Coming soon' %}
         {% endcase %}
         <li class="product-card {{ product.css_class }}">
-          <div class="product-accent"></div>
           <a class="product-link" href="{{ product.url }}">
             <div class="product-image-holder">
               <img alt="Image of {{ product.name | escape }}" class="product-image" src="{{ product.image | product_image_url | constrain: '1000' }}">
             </div>
             <div class="product-info">
-              <div class="product-price">{{ product.default_price | money_with_sign }}</div>
               <div class="product-name">{{ product.name }}</div>
+              <div class="product-price">{{ product.default_price | money_with_sign }}</div>
               {% if product_status != blank %}
-                <div class="product-status"><div class="status-text">{{ product_status }}</div></div>
+                <div class="product-status">{{ product_status }}</div>
               {% endif %}
             </div>
           </a>
+          <div class="product-accent"></div>
         </li>
       {% endfor %}
     </ul>

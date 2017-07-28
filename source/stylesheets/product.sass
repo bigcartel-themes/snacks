@@ -5,8 +5,10 @@
   +flexbox
   +align-items(flex-start)
   +justify-content(flex-start)
+  position: relative
   
 .product-page-images
+  +pie-clearfix
   max-width: 600px
   width: 100%
 
@@ -15,11 +17,50 @@
     margin: 0
     padding: 0
     
+    li
+      margin-bottom: 50px
+      
   img
     display: block
     width: 100%
+    
+.product-page-accent
+  background-color: $accent-background-color
+  float: right
+  height: 75px
+  width: 500px
 
 .product-page-details
   margin-left: auto
+  margin-top: 125px
   max-width: 500px
   width: 100%
+  
+.product-page-info
+  background: $background-color
+  font-size: 25px
+  left: -150px
+  letter-spacing: 7px
+  line-height: 40px
+  margin-bottom: 50px
+  padding: 25px
+  position: relative
+  text-transform: uppercase
+  width: 450px
+
+.product-form
+  +pie-clearfix
+  
+.product-form .select
+  float: left
+  max-width: 300px
+  
+.product-form .button
+  float: left
+  max-width: 200px
+  width: 100%
+  
+.product-description
+  font-size: 15px
+  line-height: 25px
+  text-transform: none

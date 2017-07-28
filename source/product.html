@@ -11,6 +11,7 @@
 
 <div class="product-page">
   <div class="product-page-images">
+    <div class="product-page-accent"></div>
     <ul class="product-images-list">
       {% for image in product.images %}
         <li>
@@ -42,7 +43,7 @@
           <div class="select">
             {{ product.options_in_stock | options_select }}
             <div class="arrow-holder">
-              <svg width="10" height="6" viewBox="0 0 10 6" xmlns="http://www.w3.org/2000/svg"><path d="M9.852 1.536c.2-.19.2-.496 0-.684L9.135.17c-.197-.19-.518-.19-.715 0L5.016 3.463 1.582.142c-.2-.19-.52-.19-.717 0L.148.825c-.197.188-.197.494 0 .684l4.508 4.35c.2.187.52.187.717 0l4.48-4.324z" /></svg>
+              <svg style="width:29px;height:29px;" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29"><style>.st0{fill:#FFFFFF;}</style><path id="Menu" class="st0" d="M27 22H2v-1h25v1zm0-7H2v-1h25v1zm0-7H2V7h25v1z"/></svg>
             </div>
           </div>
         {% endif %}

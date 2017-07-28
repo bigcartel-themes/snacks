@@ -8,6 +8,9 @@
   list-style: none
   margin: 0
   padding: 0
+  
+  &.home-products
+    padding: 0 25px
 
 .product-card
   margin-bottom: 100px
@@ -21,11 +24,16 @@
     text-align: right
     
     .product-info
+      left: auto
       right: 450px
+      
+    .product-image
+      float: right
 
 .product-accent
   background: $accent-background-color
   bottom: 0
+  display: inline-block
   height: 75px
   width: 400px
   z-index: 2
@@ -35,20 +43,21 @@
   position: relative
 
 .product-image-holder
+  +pie-clearfix
   position: relative
-  max-width: 500px
   width: 100%
 
 .product-image
-  display: block
+  float: left
+  max-width: 500px
   width: 100%
 
 .product-info
   background: $background-color
-  background: red
-  font-size: 18px
+  font-size: 25px
   left: 450px
-  line-height: 18px
+  letter-spacing: 7px
+  line-height: 40px
   padding: 25px
   position: absolute
   text-transform: uppercase
@@ -60,6 +69,7 @@
 .product-name
 
 .product-status
+  font-size: 13px
 
 .status-text
 

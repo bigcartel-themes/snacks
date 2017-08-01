@@ -43,11 +43,14 @@
           <div class="select">
             {{ product.options_in_stock | options_select }}
             <div class="arrow-holder">
-              <svg style="width:29px;height:29px;" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29"><style>.st0{fill:#FFFFFF;}</style><path id="Menu" class="st0" d="M27 22H2v-1h25v1zm0-7H2v-1h25v1zm0-7H2V7h25v1z"/></svg>
+              <svg viewBox="0 0 29 29"><path d="M27 22H2v-1h25v1zm0-7H2v-1h25v1zm0-7H2V7h25v1z"/></svg>
             </div>
           </div>
         {% endif %}
-        <button class="button" name="submit" type="submit" title="Add to Cart">Add to Cart</button>
+        {{ product | product_quantity_input, 1, 'product-quantity', 'product-quantity' }}
+        <button class="button add-to-cart-button" type="submit" data-added-text="Added!" data-adding-text="Adding...">
+          <span class="status-text"><svg viewBox="0 0 29 29"><path d="M15 27h-1V15H2v-1h12V2h1v12h12v1H15z"/></svg></span>
+        </button>
       </form>
   	{% endif %}
   	<div class="product-description">

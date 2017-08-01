@@ -3,9 +3,19 @@
 .home-welcome
   margin-bottom: 200px
   position: relative
+  top: 50px
 
+.welcome-accent
+  background-color: $accent-background-color
+  height: 100px
+  left: 200px
+  position: absolute
+  top: -50px
+  width: calc(100% - 300px)
+  
 .welcome-image
   display: block
+  position:relative
   width: 100%
 
 .welcome-message
@@ -20,6 +30,10 @@
 .welcome-subheader
   color: $accent-text-color
   font-size: 13px
+  margin-bottom: 30px
   
 .welcome-header + .welcome-subheader
   margin-top: 30px
+  
+.welcome-link
+  max-width: 300px

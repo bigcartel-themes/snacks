@@ -1,14 +1,17 @@
 {% if theme.welcome_image or theme.welcome_header != blank or theme.welcome_subheader != blank %}
   <div class="home-welcome">
     {% if theme.welcome_image %}
+      <div class="welcome-accent"></div>
       <img class="welcome-image" src="{{ theme.images.welcome_image.url | constrain: 2000,1400 }}">
     {% endif %}
-    {% if theme.welcome_header != blank or theme.welcome_subheader != blank %}
-      <div class="welcome-message">
+    <div class="welcome-message">
+      {% if theme.welcome_header != blank or theme.welcome_subheader != blank %}
         {% if theme.welcome_header != blank %}<h1 class="welcome-header">{{ theme.welcome_header }}</h1>{% endif %}
         {% if theme.welcome_subheader != blank %}<h2 class="welcome-subheader">{{ theme.welcome_subheader }}</h2>{% endif %}
+      {% endif %}
+      <a class="button welcome-link" href="/products" title="Start Shopping">Start Shopping</a>
+      
       </div>
-    {% endif %}
   </div>
 {% endif %}
         
@@ -42,10 +45,7 @@
         </li>
       {% endfor %}
     </ul>
-    {% if paginate.pages > 1 %}
-      {{ paginate | default_pagination, 'pagination', 'pagination', '< Prev', 'Next >' }}
-      <span class="paginate-info">Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
-    {% endif %}
+    <a href="/products" class="button shop-all-products-button">Shop all products</a>
   {% else %}
     <div class="empty-products"><p class="no-products-message">No products found.</p></div>
   {% endif %}

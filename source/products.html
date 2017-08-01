@@ -1,9 +1,7 @@
-<ul>
-  <li><a href="/products" title="Products">Products</a></li>
-  {% for category in categories.active %}
-    <li>{{ category | link_to }}</li>
-  {% endfor %}
-</ul>
+<div class="category-navigation">
+  {% if page.full_url contains "/products" %}All Products{% else %}{{ page.name }}{% endif %}
+  <svg viewBox="0 0 29 29"><path d="M27 22H2v-1h25v1zm0-7H2v-1h25v1zm0-7H2V7h25v1z"/></svg>
+</div>
 
 {% paginate products from products.current by theme.products_per_page %}
   {% if products != blank %}

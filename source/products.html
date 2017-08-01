@@ -18,9 +18,6 @@
         {% endcase %}
         <li class="product-card {{ product.css_class }}">
           <a class="product-link" href="{{ product.url }}">
-            <div class="product-image-holder">
-              <img alt="Image of {{ product.name | escape }}" class="product-image" src="{{ product.image | product_image_url | constrain: '1000' }}">
-            </div>
             <div class="product-info">
               <div class="product-name">{{ product.name }}</div>
               <div class="product-price">{{ product.default_price | money_with_sign }}</div>
@@ -28,16 +25,26 @@
                 <div class="product-status">{{ product_status }}</div>
               {% endif %}
             </div>
+            <div class="product-image-holder">
+              <img alt="Image of {{ product.name | escape }}" class="product-image" src="{{ product.image | product_image_url | constrain: '1000' }}">
+            </div>
           </a>
           <div class="product-accent"></div>
         </li>
       {% endfor %}
     </ul>
     {% if paginate.pages > 1 %}
-      {{ paginate | default_pagination, 'pagination', 'pagination', '< Prev', 'Next >' }}
-      <span class="paginate-info">Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+
+          <a class="button next-button paginate-button" href="{{ paginate.next.url }}">{{ paginate.next.title }}</a>
+      
     {% endif %}
   {% else %}
     <div class="empty-products"><p class="no-products-message">No products found.</p></div>
   {% endif %}
 {% endpaginate %}
+
+<div class="page-load-status">
+  <p class="infinite-scroll-request">Loading...</p>
+  <p class="infinite-scroll-last">End of content</p>
+  <p class="infinite-scroll-error">No more pages to load</p>
+</div>

@@ -194,6 +194,9 @@ button, a.button
   margin-bottom: 75px
   max-width: 500px
   width: 100%
+  
+  @media screen and (max-width: $break-extra-small)
+    margin: 50px 0 25px
 
 .content
   margin-bottom: 100px
@@ -242,9 +245,15 @@ button, a.button
   +align-items(flex-start)
   +flex-direction(row)
   
+  @media screen and (max-width: $break-small)
+    +flex-direction(column)
+  
   .page-title 
     max-width: 500px
     width: 100%
+    
+    @media screen and (max-width: $break-small)
+      max-width: 100%
     
   .page-content
     font-size: 15px
@@ -254,14 +263,8 @@ button, a.button
     width: 100%
   
     @media screen and (max-width: $break-small)
-      max-width: 300px
+      max-width: 100%
 
-[aria-hidden="true"]
-  display: none
-  
-[aria-hidden="false"]
-  display: block
-  
 .overlay
   +transition(all .3s)
   background: $accent-background-color

@@ -48,6 +48,9 @@
   text-align: left
   width: 100%
   
+  @media screen and (max-width: $break-extra-small)
+    margin-bottom: 50px
+  
   &:nth-child(even)
     margin-left: auto
     text-align: right
@@ -71,7 +74,8 @@
   z-index: 2
   
   @media screen and (max-width: $break-extra-small)
-    width: 100%
+    height: 50px
+    width: calc(100% - 50px)
 
 .product-link
   display: block
@@ -97,10 +101,12 @@
   text-transform: uppercase
   top: 50px
   width: calc(100% / 2)
+  z-index: 2
   
   @media screen and (max-width: $break-extra-small)
     left: 0
     position: relative
+    top: 25px
     width: calc(100% - 25px)
 
 .product-price
@@ -120,3 +126,7 @@
 .paginate-info
 
 .empty-products
+
+a.paginate-button
+  display: none
+  max-width: 300px

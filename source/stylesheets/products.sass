@@ -1,5 +1,34 @@
 @import 'variables'
 
+.category-navigation
+  +pie-clearfix
+  +flexbox
+  +align-items(center)
+  +justify-content(flex-start)
+  background-color: $accent-background-color
+  color: $accent-text-color
+  cursor: pointer
+  font-size: 11px
+  height: 75px
+  line-height: 75px
+  margin-left: 100px
+  margin-bottom: 125px
+  max-width: 500px
+  padding: 0 50px
+  width: 100%
+  
+  @media screen and (max-width: $break-extra-small)
+    height: 50px
+    line-height: 50px
+    margin-left: 0
+    padding: 0 25px
+  
+  svg
+    fill: $accent-text-color
+    height: 29px
+    margin-left: auto
+    width: 29px
+
 .product-list
   +flexbox
   +flex-wrap(wrap)
@@ -7,11 +36,11 @@
   +flex-direction(row)
   list-style: none
   margin: 0
-  padding: 0
+  padding: 0 100px
   
-  &.home-products
-    padding: 0 25px
-
+  @media screen and (max-width: $break-small)
+    padding: 0
+  
 .product-card
   margin-bottom: 100px
   max-width: 900px
@@ -25,7 +54,10 @@
     
     .product-info
       left: auto
-      right: 450px
+      right: calc(100% / 2)
+      
+      @media screen and (max-width: $break-extra-small)
+        right: 0
       
     .product-image
       float: right
@@ -37,6 +69,9 @@
   height: 75px
   width: 400px
   z-index: 2
+  
+  @media screen and (max-width: $break-extra-small)
+    width: 100%
 
 .product-link
   display: block
@@ -55,24 +90,30 @@
 .product-info
   background: $background-color
   font-size: 25px
-  left: 450px
+  left: calc(100% / 2)
   letter-spacing: 7px
   line-height: 40px
   padding: 25px
   position: absolute
   text-transform: uppercase
   top: 50px
-  width: 450px
+  width: calc(100% / 2)
+  
+  @media screen and (max-width: $break-extra-small)
+    left: 0
+    position: relative
+    width: calc(100% - 25px)
 
 .product-price
+  color: $secondary-text-color
 
 .product-name
 
 .product-status
+  color: $secondary-text-color
   font-size: 13px
-
-.status-text
-
+  letter-spacing: 1px
+  
 .pagination
 
 .paginate-info

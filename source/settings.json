@@ -10,14 +10,15 @@
     {
       "variable": "welcome_image",
       "label": "Welcome image",
-      "description": "1200px by 800px images recommended"
+      "description": "1200px by 800px images recommended",
+      "default": "welcome-image.png"
     }
   ],
   "fonts": [
     {
       "variable": "primary_font",
       "label": "Primary Font",
-      "default": "Open Sans"
+      "default": "Muli"
     }
   ],
   "colors": [
@@ -30,6 +31,11 @@
       "variable": "text_color",
       "label": "Text",
       "default": "#000000"
+    },
+    {
+      "variable": "secondary_text_color",
+      "label": "Secondary Text",
+      "default": "#999999"
     },
     {
       "variable": "accent_background_color",
@@ -52,13 +58,15 @@
       "variable": "welcome_header",
       "label": "Welcome header",
       "type": "text",
-      "description": "Welcome header for homepage"
+      "description": "Welcome header for homepage",
+      "default": "Welcome to Snacks"
     },
     {
       "variable": "welcome_subheader",
       "label": "Welcome subheader",
       "type": "text",
-      "description": "Welcome subheader for homepage"
+      "description": "Welcome subheader for homepage",
+      "default": "Free Snacks for everyone"
     },
     {
       "variable": "products_per_page",
@@ -67,6 +75,41 @@
       "options": "1..100",
       "default": 12,
       "description": "The number of products shown per page"
+    },
+    {
+      "variable": "twitter_url",
+      "label": "Twitter URL",
+      "type": "text",
+      "description": "Ex: http://twitter.com/bigcartel",
+      "default": "http://blah.com"
+    },
+    {
+      "variable": "facebook_url",
+      "label": "Facebook URL",
+      "type": "text",
+      "description": "Ex: http://facebook.com/bigcartel",
+      "default": "http://blah.com"
+    },
+    {
+      "variable": "tumblr_url",
+      "label": "Tumblr URL",
+      "type": "text",
+      "description": "Ex: http://bigcartel.tumblr.com",
+      "default": "http://blah.com"
+    },
+    {
+      "variable": "instagram_url",
+      "label": "Instagram URL",
+      "type": "text",
+      "description": "Ex: http://instagram.com/bigcartel",
+      "default": "http://blah.com"
+    },
+    {
+      "variable": "pinterest_url",
+      "label": "Pinterest URL",
+      "type": "text",
+      "description": "Ex: http://pinterest.com/bigcartel",
+      "default": "http://blah.com"
     }
   ]
 }

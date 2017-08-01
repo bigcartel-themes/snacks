@@ -2,11 +2,17 @@
 
 $background-color: #{"{{ theme.background_color }}"}
 $text-color: #{"{{ theme.text_color }}"}
+$secondary-text-color: #{"{{ theme.secondary_text_color }}"}
 $accent-background-color: #{"{{ theme.accent_background_color }}"}
 $accent-text-color: #{"{{ theme.accent_text_color }}"}
 $error-color:  #{"{{ theme.error_color }}"}
 
-$primary-font: #{"{{ theme.primary_font | font_family }}"}
+$primary-font: Muli
+
+$break-large: 1200px
+$break-medium: 1024px
+$break-small: 768px
+$break-extra-small: 640px
 
 @mixin vertical-align
   +transform(translateY(-50%))
@@ -32,10 +38,10 @@ $primary-font: #{"{{ theme.primary_font | font_family }}"}
   -webkit-transition: $transition
   transition: $transition
 
-@mixin appearance($str)
-  -webkit-appearance: none
-  -moz-appearance: none
-  appearance: none
+@mixin appearance($str...)
+  -webkit-appearance: $str
+  -moz-appearance: $str
+  appearance: $str
   
 @mixin pie-clearfix
   &:after

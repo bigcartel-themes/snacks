@@ -20,15 +20,16 @@ API.onError = function(errors) {
 $(function() {
   // Open the Shop overlay from 'Shop' title and Categories
   $('.open-overlay, .category-navigation').click(function(e) {
-    $('body').addClass('overlay-open');
-    $('.overlay').addClass('open').addClass('navigation');
+    $('html').addClass('overlay-open');
+    $('.overlay').addClass('open');
     return false;
   });
   
   // Close the overlay by clicking the X button
   $('.close-overlay, .overlay a').click(function(e) {
-    $('body').removeClass('overlay-open');
-    $('.overlay').removeClass('open').removeClass('navigation');
+    $('.overlay').removeClass('open');
+    $('html').removeClass('overlay-open');
+    
   });
   
   // Adding item to cart
@@ -68,8 +69,9 @@ $(function() {
 // Close the overlay by hitting the escape key
 $(document).on('keyup',function(e) {
   if (e.keyCode == 27) {
-    $('body').removeClass('overlay-open');
-    $('.overlay').removeClass('open').removeClass('navigation');
+    $('.overlay').removeClass('open');
+    $('html').removeClass('overlay-open');
+    
   }
 });
 

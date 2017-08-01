@@ -7,6 +7,10 @@ html
   min-height: 100%
   position: relative
   
+  &.overlay-open
+    margin-right: 15px
+    overflow: hidden
+  
 body
   background-color: $background-color
   color: $text-color
@@ -14,9 +18,6 @@ body
   font-size: 14px
   line-height: 1
   text-transform: uppercase
-  
-  &.overlay-open
-    overflow: hidden
       
 a, a:visited
   color: $text-color
@@ -225,13 +226,17 @@ button, a.button
   left: 0
   line-height: 40px
   overflow-y: scroll
-  padding: 100px 200px
+  padding: 100px 0
   position: fixed
   right: 0
   text-align: left
   top: 100vh
   width: 100%
   z-index: 4
+  
+  .wrapper
+    max-width: 1090px
+    position: relative
   
   @media screen and (max-width: $break-small)
     height: 100vh
@@ -241,8 +246,17 @@ button, a.button
     
     @media screen and (max-width: $break-small)
       top: 0
+      
+  .overlay-header 
+    font-size: 25px
+    letter-spacing: 5px
+    line-height: 20px
+    margin-bottom: 60px
+    text-transform: uppercase
     
   .overlay-links
+    font-size: 11px
+    letter-spacing: 2px
     list-style: none
     margin: 0
     padding: 0
@@ -252,8 +266,8 @@ button, a.button
     fill: $accent-text-color
     height: 29px
     position: absolute
-    right: 200px
-    top: 100px
+    right: 0
+    top: 0
     width: 29px
     
   a, a:visited

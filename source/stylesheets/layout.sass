@@ -18,6 +18,50 @@ body
   font-size: 14px
   line-height: 1
   text-transform: uppercase
+  
+  &.maintenance-page
+    background: $accent-background-color
+    color: $accent-text-color
+    
+.maintenance-content
+  height: 100vh
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+  justify-content: space-around
+  
+.maintenance-headings
+  margin-top: auto
+  width: 100%
+
+h1.maintenance-header
+  color: $accent-text-color
+  font-size: 40px
+  letter-spacing: 10px
+  line-height: 50px
+  margin-bottom: 30px
+  max-width: 550px
+  width: 100%
+  
+.maintenance-note
+  font-size: 15px
+  margin-bottom: 100px
+  text-transform: none
+  
+.maintenance-icon
+  fill: $accent-text-color
+  height: 29px
+  margin-bottom: 50px
+  width: 29px
+
+.maintenance-footer
+  background: $background-color
+  color: $text-color
+  font-size: 11px
+  letter-spacing: 2px
+  line-height: 25px
+  padding: 50px 0
+  width: 100%
       
 a, a:visited
   color: $text-color

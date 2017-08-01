@@ -28,7 +28,6 @@ body
   display: flex
   flex-direction: column
   align-items: flex-start
-  justify-content: space-around
   
 .maintenance-headings
   margin-top: auto
@@ -48,10 +47,13 @@ h1.maintenance-header
   margin-bottom: 100px
   text-transform: none
   
+  @media screen and (max-width: $break-extra-small)
+    margin-bottom: 50px
+  
 .maintenance-icon
   fill: $accent-text-color
   height: 29px
-  margin-bottom: 50px
+  margin: 100px 0 50px 0
   width: 29px
 
 .maintenance-footer

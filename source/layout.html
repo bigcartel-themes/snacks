@@ -25,9 +25,11 @@
       <div class="wrapper">
         
         {% if page.category == 'custom' %}
-          <h1 class="page-title">{{ page.name }}</h1>
-          <div class="page-content custom-page">
-            {{ page_content | paragraphs }}
+          <div class="split-page custom-page">
+            <h1 class="custom-title page-title">{{ page.name }}</h1>
+            <div class="page-content custom-page-content">
+              {{ page_content | paragraphs }}
+            </div>
           </div>
         {% else %}
           {{ page_content }}
@@ -37,51 +39,63 @@
     
     <footer class="footer">
       <div class="wrapper">
-        <ul class="footer-links">
-          <li><a href="/products" title="Products">Products</a></li>
-          {% for page in pages.all limit: theme.nav_items %}
-            <li>{{ page | link_to }}</li>
-          {% endfor %}
-          {% if store.website != blank %}
-            <li><a href="{{ store.website }}">Back to site</a></li>
-          {% endif %}
-          <li><a href="/contact" title="Contact">Contact</a></li>
-        </ul>
-        {% if theme.twitter_url != blank or theme.facebook_url != blank or theme.instagram_url != blank or theme.tumblr_url != blank or theme.pinterest_url != blank %}
-          <ul class="footer-social-links">
-            {% if theme.instagram_url != blank %}
-              <li><a title="Instagram" href="{{ theme.instagram_url }}">Instagram</a></li>
+        <div class="footer-divider"></div>
+        <div class="footer-navigation">
+          <ul class="footer-navigation-item footer-links">
+            <li><a href="/products" title="Products">Products</a></li>
+            {% for page in pages.all limit: theme.nav_items %}
+              <li>{{ page | link_to }}</li>
+            {% endfor %}
+            {% if store.website != blank %}
+              <li><a href="{{ store.website }}">Back to site</a></li>
             {% endif %}
-            
-            {% if theme.twitter_url != blank %}
-              <li><a title="Twitter" href="{{ theme.twitter_url }}">Twitter</a></li>
-            {% endif %}
-            
-            {% if theme.facebook_url != blank %}
-              <li><a title="Facebook" href="{{ theme.facebook_url }}">Facebook</a></li>
-            {% endif %}
-    
-            {% if theme.pinterest_url != blank %}
-              <li><a title="Pinterest" href="{{ theme.pinterest_url }}">Pinterest</a></li>
-            {% endif %}
-            
-            {% if theme.tumblr_url != blank %}
-              <li><a title="Tumblr" href="{{ theme.tumblr_url }}">Tumblr</a></li>
-            {% endif %}
+            <li><a href="/contact" title="Contact">Contact</a></li>
           </ul>
-        {% endif %}
-        <div class="footer-credit">{{ bigcartel_credit }}</div>
+          {% if theme.twitter_url != blank or theme.facebook_url != blank or theme.instagram_url != blank or theme.tumblr_url != blank or theme.pinterest_url != blank %}
+            <ul class="footer-navigation-item footer-social-links">
+              {% if theme.instagram_url != blank %}
+                <li><a title="Instagram" href="{{ theme.instagram_url }}">Instagram</a></li>
+              {% endif %}
+              
+              {% if theme.twitter_url != blank %}
+                <li><a title="Twitter" href="{{ theme.twitter_url }}">Twitter</a></li>
+              {% endif %}
+              
+              {% if theme.facebook_url != blank %}
+                <li><a title="Facebook" href="{{ theme.facebook_url }}">Facebook</a></li>
+              {% endif %}
+      
+              {% if theme.pinterest_url != blank %}
+                <li><a title="Pinterest" href="{{ theme.pinterest_url }}">Pinterest</a></li>
+              {% endif %}
+              
+              {% if theme.tumblr_url != blank %}
+                <li><a title="Tumblr" href="{{ theme.tumblr_url }}">Tumblr</a></li>
+              {% endif %}
+            </ul>
+          {% endif %}
+          <div class="footer-credit">{{ bigcartel_credit }}</div>
+        </div>
       </div>
     </footer>
     
     <div class="overlay">
-      <ul class="overlay-links">
-        <li class="overlay-link"><a href="/products" title="Products">Products</a></li>
-        {% for category in categories.active %}
-          <li class="overlay-link">{{ category | link_to }}</li>
-        {% endfor %}
-      </ul>
+      <div class="wrapper">
+        <svg class="close-overlay" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg>
+        <ul class="overlay-links">
+          <li class="overlay-link"><a href="/products" title="Products">All Products</a></li>
+          {% for category in categories.active %}
+            <li class="overlay-link">{{ category | link_to }}</li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
+    <a class="footer-overlay {% if cart.item_count > 0 %}visible{% endif %}" href="/cart">
+      <div class="wrapper">
+        <span class="cart-item-title"><span class="item-count">{{ cart.item_count | pluralize: 'Item', 'Items' }}</span> in your cart</span>
+        <svg class="cart-icon" viewBox="0 0 29 29">><path d="M26.7 6.5c-.2-.3-.6-.5-1-.5H7l-.4-1.1C6.5 4.4 6 4 5.4 4H2v1h3.4c.1 0 .2.1.2.2l4.1 13.9c.2.5.7.9 1.3.9h13v-1H11c-.1 0-.2-.1-.2-.2l-.6-1.8h13.5c.6 0 1.1-.4 1.2-1l2-8.4c.1-.4.1-.8-.2-1.1zM24 15.8c0 .1-.1.2-.2.2H10h-.1L7.2 7h18.5c.1 0 .2.1.2.1.1.1.1.2.1.2l-2 8.5zM12 21c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 3c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1zm10-3c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 3c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z"/></svg>
+      </div>
+    </a>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{ 'api' | theme_js_url }}"></script>
     <script src="{{ theme | theme_js_url }}"></script>

@@ -29,9 +29,11 @@ h1, h2, h3, h4, h5, h6
   padding: 0
   text-align: left
 
-h1, h2, h3, h4, h5, h6
+h1
+  font-size: 25px
+  letter-spacing: 3px
 
-button, .button
+button, a.button
   border: 0px
   background: $accent-background-color
   color: $accent-text-color
@@ -39,19 +41,24 @@ button, .button
   display: block
   font-family: $primary-font
   font-size: 11px
-  height: 64px
+  height: 75px
   letter-spacing: 1px
-  line-height: 1
+  line-height: 75px
   outline: none
+  padding: 0
+  text-align: center
   text-transform: uppercase
   width: 100%
   
 .select
+  +flexbox
+  +align-items(center)
+  +justify-content(flex-start)
   background: $accent-background-color
   color: $accent-text-color
+  cursor: pointer
   font-family: $primary-font
-  height: 64px
-  margin-bottom: 20px
+  height: 75px
   max-width: 100%
   padding: 0
   position: relative
@@ -67,7 +74,7 @@ button, .button
     height: 100%
     letter-spacing: 1px
     line-height: 2em
-    padding: 0 66px 0 20px
+    padding: 0 66px 0 30px
     position: relative
     text-transform: uppercase
     width: 100%
@@ -106,15 +113,16 @@ button, .button
     +flexbox
     +justify-content(center)
     +align-items(center)
-    height: 64px
-    position: absolute
-    right: 0
+    height: 75px
+    margin-left: auto
     text-align: center
-    top: 0
-    width: 60px
+    width: 75px
 
 .header
   height: 200px
+  
+  @media screen and (max-width: $break-extra-small)
+    height: 140px
   
   .wrapper
     +flexbox
@@ -122,62 +130,165 @@ button, .button
     +justify-content(flex-start)
     height: 200px
     
+    @media screen and (max-width: $break-extra-small)
+      height: 140px
+    
   .open-overlay
     margin-left: auto
     
 .store-link
   font-size: 20px
 
-.content
+.page-accent
+  background: $accent-background-color
+  height: 25px
+  margin-bottom: 75px
+  max-width: 500px
+  width: 100%
 
 .footer
+  font-size: 11px
+  line-height: 25px
   
-  .wrapper
+  .footer-divider
     border-top: 25px solid $accent-background-color
-
-.footer-links
+    height: 25px
+    margin-bottom: 25px
+    width: 100%
+    
+  .footer-navigation
+    +flexbox
+    +align-items(flex-start)
+    padding-bottom: 100px
+    
+.footer-navigation-item
   list-style: none
   margin: 0
   padding: 0
+  
+.footer-links
+  margin-right: 50px
 
 .footer-social-links
-  list-style: none
-  margin: 0
-  padding: 0
 
 .footer-credit
+  margin-left: auto
 
 .wrapper
   margin: 0 auto
-  max-width: 1200px
+  max-width: 1300px
+  padding: 0 50px
   width: 100%
+  
+  @media screen and (max-width: $break-extra-small)
+    padding: 0 25px
 
+.split-page
+  +flexbox
+  +justify-content(flex-start)
+  +align-items(flex-start)
+  +flex-direction(row)
+  
+  .page-title 
+    max-width: 500px
+    width: 100%
+    
+  .page-content
+    font-size: 15px
+    line-height: 25px
+    max-width: 700px
+    text-transform: none
+    width: 100%
+  
+    @media screen and (max-width: $break-small)
+      max-width: 300px
+
+
+[aria-hidden="true"]
+  display: none
+  
+[aria-hidden="false"]
+  display: block
+  
 .overlay
-  +transition(opacity 0.3s, visibility 0.3s)
+  +transition(all .3s)
   background: $accent-background-color
+  bottom: 0
   color: $accent-text-color
   font-size: 15px
   height: 50vh
   left: 0
   line-height: 40px
-  opacity: 0
   overflow-y: scroll
   padding: 100px 200px
   position: fixed
+  right: 0
   text-align: left
-  top: 50vh
-  visibility: hidden
+  top: 100vh
   width: 100%
-  z-index: 2
+  z-index: 4
+  
+  @media screen and (max-width: $break-small)
+    height: 100vh
   
   &.open
-    opacity: 1
-    visibility: visible
+    top: 50vh
+    
+    @media screen and (max-width: $break-small)
+      top: 0
     
   .overlay-links
     list-style: none
     margin: 0
     padding: 0
     
+  .close-overlay
+    cursor: pointer
+    fill: $accent-text-color
+    height: 29px
+    position: absolute
+    right: 200px
+    top: 100px
+    width: 29px
+    
   a, a:visited
     color: $accent-text-color
+    
+
+    
+.footer-overlay
+  +transition(all .3s)
+  background: $accent-background-color
+  bottom: -100px
+  color: $accent-text-color !important
+  font-size: 11px
+  height: 100px
+  left: 0
+  line-height: 100px
+  padding: 0
+  position: fixed
+  text-align: left
+  width: 100%
+  z-index: 2
+  
+  @media screen and (max-width: $break-extra-small)
+    bottom: -50px
+    height: 50px
+    line-height: 50px
+  
+  .wrapper
+    +flexbox
+    +justify-content(flex-start)
+    +align-items(center)
+  
+  &.visible
+    bottom: 0
+    
+    @media screen and (max-width: $break-extra-small)
+      bottom: 0
+  
+  .cart-icon
+    fill: $accent-text-color
+    height: 29px
+    margin-left: auto
+    width: 29px

@@ -4,6 +4,7 @@
   box-sizing: border-box
   
 html
+  font-size: 2vw
   min-height: 100%
   position: relative
   
@@ -116,6 +117,7 @@ button, a.button
     background: none
     border: 0
     color: $accent-text-color
+    cursor: pointer
     font-family: $primary-font
     font-size: 11px
     height: 100%
@@ -264,6 +266,25 @@ button, a.button
   
     @media screen and (max-width: $break-small)
       max-width: 100%
+      
+.custom-page-content
+
+  img, iframe
+    display: block
+    max-width: 100%
+    
+  ol, ul
+    margin: 1em 0 0 20px
+    padding: 0
+  
+  ol
+    list-style-type: decimal
+    
+  ul
+    list-style-type: disc
+      
+  a
+    text-decoration: underline
 
 .overlay
   +transition(all .3s)
@@ -310,6 +331,7 @@ button, a.button
     margin: 0
     padding: 0
     
+    
   .close-overlay
     cursor: pointer
     fill: $accent-text-color
@@ -319,8 +341,11 @@ button, a.button
     top: 0
     width: 29px
     
-  a, a:visited
+  a
     color: $accent-text-color
+    
+    &:hover
+      text-decoration: underline
   
 .footer-overlay
   +transition(all .3s)

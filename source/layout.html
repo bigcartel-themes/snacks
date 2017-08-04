@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     {{ head_content }}
   </head>
   <body id="{{ page.permalink }}" class="{{ page.category }}">
@@ -17,7 +16,7 @@
           <a class="store-link" href="/" title="{{ store.name | escape }}">{{ store.name }}</a>
         {% endif %}
         
-        <a class="open-overlay" href="#">Shop</a>
+        <a class="open-overlay" href="/products">Shop</a>
       </div>
     </header>
     

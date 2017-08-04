@@ -30,15 +30,15 @@
         {% endcase %}
         <li class="product-card {{ product.css_class }}">
           <a class="product-link" href="{{ product.url }}">
-            <div class="product-image-holder">
-              <img alt="Image of {{ product.name | escape }}" class="product-image" src="{{ product.image | product_image_url | constrain: '1000' }}">
-            </div>
             <div class="product-info">
               <div class="product-name">{{ product.name }}</div>
               <div class="product-price">{{ product.default_price | money_with_sign }}</div>
               {% if product_status != blank %}
                 <div class="product-status">{{ product_status }}</div>
               {% endif %}
+            </div>
+            <div class="product-image-holder">
+              <img alt="Image of {{ product.name | escape }}" class="product-image" src="{{ product.image | product_image_url | constrain: '1000' }}">
             </div>
           </a>
           <div class="product-accent"></div>

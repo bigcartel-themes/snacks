@@ -11,16 +11,28 @@
 
 <div class="product-page">
   <div class="product-page-images">
-    <div class="product-page-accent"></div>
-    <ul class="product-images-list">
-      {% for image in product.images %}
-        <li>
-          <a href="{{ image | product_image_url | constrain: 1500 }}">
-            <img src="{{ image | product_image_url | constrain: 1500 }}" alt="Image of {{ product.name | escape }}">
-          </a>
-        </li>
-      {% endfor %}
-    </ul>
+    <div class="product-page-accent{% if product.images.size > 1 %} has-controls{% endif %}">
+      {% if product.images.size > 1 %}
+        <ul class="product-images-nav">
+          <li><a href="#">Prev</a></li>
+          {% for image in product.images %}
+            <li class="nav-icon"><a href="#">{{ forloop.index }}</a>
+          {% endfor %}
+          <li><a href="#">Next</a></li>
+        </ul>
+      {% endif %}
+    </div>
+    <div class="flexslider">
+      <ul class="product-images-list slides">
+        {% for image in product.images %}
+          <li>
+            <a href="{{ image | product_image_url | constrain: 1500 }}">
+              <img src="{{ image | product_image_url | constrain: 1500 }}" alt="Image of {{ product.name | escape }}">
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
   </div>
   
   
@@ -38,9 +50,10 @@
   	{% if product.status == 'active' %}
       <form action="/cart" class="product-form" method="post">
         {% if product.has_default_option %}
+          <div class="single-option">Add to Cart</div>
           {{ product.option | hidden_option_input }}
         {% else %}
-          <div class="select">
+          <div class="product-option-select select">
             {{ product.options_in_stock | options_select }}
             <div class="arrow-holder">
               <svg viewBox="0 0 29 29"><path d="M27 22H2v-1h25v1zm0-7H2v-1h25v1zm0-7H2V7h25v1z"/></svg>
@@ -51,6 +64,7 @@
         <button class="button add-to-cart-button" type="submit" data-added-text="Added!" data-adding-text="Adding...">
           <span class="status-text"><svg viewBox="0 0 29 29"><path d="M15 27h-1V15H2v-1h12V2h1v12h12v1H15z"/></svg></span>
         </button>
+                  
       </form>
   	{% endif %}
   	<div class="product-description">
@@ -60,3 +74,17 @@
   	</div>
   </div>
 </div>
+
+{% if product.has_default_option == false and product.status == 'active' %}
+  <div class="overlay product-option-overlay">
+    <div class="wrapper">
+      <svg class="close-overlay" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg>
+      <div class="overlay-header">Options</div>
+      <ul class="overlay-links product-options-list">
+        {% for option in product.options %}
+          <li data-option-id="{{ option.id }}" {% if option.sold_out %} class="disabled"{% endif %}>{{ option.name }} - {{ option.price | money_with_sign }} {% if option.sold_out %}(Sold out){% endif %}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+{% endif %}

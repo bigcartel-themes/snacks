@@ -118,7 +118,8 @@ $(function() {
       animation: "slide",
       directionNav: false,
       manualControls: ".product-images-nav li.nav-icon",
-      slideshow: false
+      slideshow: false,
+      smoothHeight: true
     });
   }
 });

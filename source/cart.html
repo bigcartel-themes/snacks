@@ -3,42 +3,55 @@
   <svg class="close-overlay" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg>  
 </div>
 
+<div class="cart-page split-page">
 {% if cart.items != blank %}
   <div class="cart-totals">
-    Subtotal
     {% if cart.shipping.enabled or cart.discount.enabled %}
-      <h3 class="cart-total cart-subtotal">Total <span class="cart-total-amount">{{ cart.total | money_with_sign }}</span></h3>
+      <h3 class="cart-total cart-subtotal">Total: <span class="cart-total-amount">{{ cart.total | money_with_sign }}</span></h3>
     {% else %}
-      <h3 class="cart-total"><span class="cart-total-amount">{{ cart.total | money_with_sign }}</span></h3>
+      <h3 class="cart-total">Subtotal: <span class="cart-total-amount">{{ cart.total | money_with_sign }}</span></h3>
     {% endif %}
   </div>
-  <form method="post" action="/cart" id="cart-form" class="cart-form">
-  <ul class="cart-items">
-    {% for item in cart.items %}
-      <li class="cart-item" data-cart-id="{{ item.id }}">
-        <div class="item-top-half">
-          <div class="item-delete" data-item-id="{{ item.id }}"><svg class="close-overlay" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg></div>
-          
-          <a class="item-image" href="{{ item.product.url }}" title="View {{ item.product.name | escape }}" style="background-image:url('{{ item.product.image | product_image_url | constrain: 576, 576 }}');"></a>
-          
-          <div class="item-quantity-holder">
-            {{ item | item_quantity_input, '', 'option-quantity' }}
-          </div>
-        </div>
-        
-        <div class="item-bottom-half">
-          <a class="item-link" href="{{ item.product.url }}" title="View {{ item.product.name | escape }}" style="background-image:url('{{ item.product.image | product_image_url | constrain: 576, 576 }}');"></a>
-            <span class="item-details-price">{{ item.unit_price | money_with_sign }}</span>
-            <span class="item-details-name">{{ item.product.name }}</span>
-            {% unless item.product.has_default_option %}
-              <span class="item-details-option">{{ item.option.name }}</span>
-            {% endunless %}
-          </a>
-        </div>
-      </li>
-    {% endfor %}
-  </ul>
-  </form>
+  <div class="cart-item-listing">
+    <div class="page-accent"></div>
+    <form method="post" action="/cart" id="cart-form" class="cart-form">
+      <ul class="cart-items">
+        {% for item in cart.items %}
+          <li class="cart-item" data-cart-id="{{ item.id }}">
+            <div class="item-top-half">
+              <div class="item-delete" data-item-id="{{ item.id }}"><svg class="close-overlay" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg></div>
+              
+              <a class="item-image" href="{{ item.product.url }}" title="View {{ item.product.name | escape }}" style="background-image:url('{{ item.product.image | product_image_url | constrain: 576, 576 }}');"></a>
+              
+              <div class="item-top-details">
+                
+                <div class="item-details-name">{{ item.product.name }}</div>
+                {% unless item.product.has_default_option %}
+                  <div class="item-details-option">{{ item.option.name }}</div>
+                {% endunless %}
+                <div class="item-details-price">{{ item.unit_price | money_with_sign }}</div>
+              </div>
+              
+              <div class="item-quantity-holder">
+                {{ item | item_quantity_input, '', 'option-quantity' }}
+              </div>
+            </div>
+            
+            <div class="item-bottom-half">
+              <a class="item-link" href="{{ item.product.url }}" title="View {{ item.product.name | escape }}" style="background-image:url('{{ item.product.image | product_image_url | constrain: 576, 576 }}');"></a>
+                <div class="item-details-price">{{ item.unit_price | money_with_sign }}</div>
+                <div class="item-details-name">{{ item.product.name }}</div>
+                {% unless item.product.has_default_option %}
+                  <div class="item-details-option">{{ item.option.name }}</div>
+                {% endunless %}
+              </a>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </form>
+  </div>
 {% else %}
 
 {% endif %}
+</div>

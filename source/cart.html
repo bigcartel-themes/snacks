@@ -5,13 +5,6 @@
 
 <div class="cart-page split-page">
 {% if cart.items != blank %}
-  <div class="cart-totals">
-    {% if cart.shipping.enabled or cart.discount.enabled %}
-      <h3 class="cart-total cart-subtotal">Total: <span class="cart-total-amount">{{ cart.total | money_with_sign }}</span></h3>
-    {% else %}
-      <h3 class="cart-total">Subtotal: <span class="cart-total-amount">{{ cart.total | money_with_sign }}</span></h3>
-    {% endif %}
-  </div>
   <div class="cart-item-listing">
     <div class="page-accent"></div>
     <form method="post" action="/cart" id="cart-form" class="cart-form">
@@ -50,6 +43,13 @@
         {% endfor %}
       </ul>
     </form>
+  </div>
+  <div class="cart-totals">
+    {% if cart.shipping.enabled or cart.discount.enabled %}
+      <h3 class="cart-total cart-subtotal">Total: <span class="cart-total-amount">{{ cart.total | money_with_sign }}</span></h3>
+    {% else %}
+      <h3 class="cart-total">Subtotal: <span class="cart-total-amount">{{ cart.total | money_with_sign }}</span></h3>
+    {% endif %}
   </div>
 {% else %}
 

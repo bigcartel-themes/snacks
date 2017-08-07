@@ -14,11 +14,11 @@
     <div class="product-page-accent{% if product.images.size > 1 %} has-controls{% endif %}">
       {% if product.images.size > 1 %}
         <ul class="product-images-nav">
-          <li><a href="#">Prev</a></li>
+          <li class="prev-image"><a href="#">Prev</a></li>
           {% for image in product.images %}
-            <li class="nav-icon"><a href="#">{{ forloop.index }}</a>
+            <li class="nav-icon"><a href="#"></a>
           {% endfor %}
-          <li><a href="#">Next</a></li>
+          <li class="next-image"><a href="#">Next</a></li>
         </ul>
       {% endif %}
     </div>

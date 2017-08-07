@@ -12,7 +12,11 @@
     +flex-direction(column)
     
 .flex-viewport
-  width: 600px
+  max-width: 600px
+  width: 100%
+  
+.flexslider
+  margin: 0
   
 .product-page-images
   +pie-clearfix
@@ -26,9 +30,6 @@
     list-style: none
     margin: 0
     padding: 0
-    
-    li
-      margin-bottom: 50px
       
   img
     display: block
@@ -50,20 +51,45 @@
     width: 250px
     
 .product-images-nav
-  
+  height: 75px
   list-style: none
   margin: 0
   padding: 0
+  position: relative
   width: 100%
   
   li
     display: inline-block
+    margin: 0 10px
     
     a
       color: $accent-text-color
       display: block
       line-height: 75px
       padding: 0 10px
+      
+    &.nav-icon 
+      +vertical-align
+      
+      a
+        border: 1px solid $accent-text-color
+        border-radius: 50%
+        height: 10px
+        width: 10px
+        margin-top: 0
+        line-height: 1em
+        padding: 0
+    
+    &.flex-active a
+      background: $accent-text-color
+      
+    &.prev-image
+      left: 0
+      position: absolute
+      
+    &.next-image
+      position: absolute
+      right: 0
   
 
 .product-page-details
@@ -73,6 +99,7 @@
   width: 100%
   
   @media screen and (max-width: $break-medium)
+    margin-top: -50px
     max-width: none
   
 .product-page-info
@@ -82,13 +109,15 @@
   letter-spacing: 7px
   line-height: 40px
   margin-bottom: 50px
+  max-width: 450px
   padding: 25px
   position: relative
   text-transform: uppercase
-  width: 450px
+  width: 100%
   
   @media screen and (max-width: $break-medium)
     left: auto
+    max-width: 80%
 
 .product-form
   +pie-clearfix

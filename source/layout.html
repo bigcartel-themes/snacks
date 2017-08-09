@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Muli" rel="stylesheet" title="Google Fonts" type="text/css" />
     {{ head_content }}
   </head>
   <body id="{{ page.permalink }}" class="{{ page.category }}">
@@ -25,7 +26,9 @@
         
         {% if page.category == 'custom' %}
           <div class="split-page custom-page">
-            <h1 class="custom-title page-title">{{ page.name }}</h1>
+            <div class="page-header">
+              <h1 class="custom-title page-title">{{ page.name }}</h1>
+            </div>
             <div class="page-content custom-page-content">
               <div class="page-accent"></div>
               {{ page_content | paragraphs }}
@@ -92,7 +95,7 @@
       </div>
     </div>
     <a class="footer-overlay {% if cart.item_count > 0 %}visible{% endif %}" href="{% if page.full_url contains '/cart' %}/products{% else %}/cart{% endif %}">
-      <div class="wrapper header-items">
+      <div class="wrapper header-items hidden-items">
         <span class="cart-item-title">Keep shopping</span>
         <svg class="close-icon footer-icon" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg>
       </div>
@@ -103,7 +106,6 @@
     </a>
     <div class="cart-overlay">
       <div class="wrapper">
-        CAAAART!!!;
       </div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

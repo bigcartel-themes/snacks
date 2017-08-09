@@ -14,15 +14,15 @@
     <div class="product-page-accent{% if product.images.size > 1 %} has-controls{% endif %}">
       {% if product.images.size > 1 %}
         <ul class="product-images-nav">
-          <li class="prev-image"><a href="#">Prev</a></li>
+          <li class="nav-control prev-image"><a class="flex-prev" href="#"><</a></li>
           {% for image in product.images %}
             <li class="nav-icon"><a href="#"></a>
           {% endfor %}
-          <li class="next-image"><a href="#">Next</a></li>
+          <li class="nav-control next-image"><a class="flex-next" href="#">></a></li>
         </ul>
       {% endif %}
     </div>
-    <div class="flexslider">
+    <div>
       <ul class="product-images-list slides">
         {% for image in product.images %}
           <li>

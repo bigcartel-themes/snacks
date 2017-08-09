@@ -1,17 +1,8 @@
 @import 'variables'
 
 .home-welcome
-  margin-bottom: 200px
+  margin-bottom: 50px
   position: relative
-  top: 50px
-
-.welcome-accent
-  background-color: $accent-background-color
-  height: 100px
-  left: 200px
-  position: absolute
-  top: -50px
-  width: calc(100% - 300px)
   
 .welcome-image
   display: block
@@ -19,29 +10,34 @@
   width: 100%
 
 .welcome-message
-  bottom: 50px
-  left: 100px
-  position: absolute
+  background: $accent-background-color
+  color: $accent-text-color
+  bottom: 100px
+  left: 200px
+  max-width: 1000px
+  padding: 100px
+  position: relative
+  right: 0
+  text-align: right
+  width: 100%
   
 .welcome-header
   color: $accent-text-color
   font-size: 40px
   letter-spacing: 10px
+  line-height: 50px
+  text-align: right
 
 .welcome-subheader
   color: $accent-text-color
   font-size: 13px
   letter-spacing: 1px
-  margin-bottom: 30px
+  line-height: 20px
+  text-align: right
   text-transform: none
   
 .welcome-header + .welcome-subheader
   margin-top: 30px
-  
-a.welcome-link
-  letter-spacing: 2px
-  max-width: 300px
-  padding: 0 64px
   
 .shop-all-products
   margin: 0 auto

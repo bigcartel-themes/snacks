@@ -9,7 +9,6 @@
 {% if theme.welcome_image or theme.welcome_header != blank or theme.welcome_subheader != blank %}
   <div class="home-welcome">
     {% if theme.welcome_image %}
-      <div class="welcome-accent"></div>
       <img class="welcome-image" src="{{ theme.images.welcome_image.url | constrain: 2000,1400 }}">
     {% endif %}
     <div class="welcome-message">
@@ -17,9 +16,7 @@
         {% if theme.welcome_header != blank %}<h1 class="welcome-header">{{ theme.welcome_header }}</h1>{% endif %}
         {% if theme.welcome_subheader != blank %}<h2 class="welcome-subheader">{{ theme.welcome_subheader }}</h2>{% endif %}
       {% endif %}
-      <a class="button welcome-link" href="/products" title="Start Shopping">Start Shopping</a>
-      
-      </div>
+    </div>
   </div>
 {% endif %}
         

@@ -201,7 +201,7 @@ button, a.button
     margin: 50px 0 25px
 
 .content
-  margin-bottom: 100px
+  margin-bottom: 200px
   
 .footer
   font-size: 11px
@@ -369,8 +369,12 @@ button, a.button
   padding: 0
   position: fixed
   text-align: left
+  top: auto
   width: 100%
-  z-index: 2
+  z-index: 3
+  transition-property: transform
+  transition-duration: 0.3s
+  transition-delay: 0s
   
   @media screen and (max-width: $break-extra-small)
     bottom: -50px
@@ -393,3 +397,13 @@ button, a.button
     height: 29px
     margin-left: auto
     width: 29px
+    
+  .hidden-items
+    display: none
+    
+  &.open
+    transition-property: transform
+    transition-duration: 0.3s
+    transition-delay: 0s
+    transform: translate3d(0,calc(-100vh + 100px),0)
+    

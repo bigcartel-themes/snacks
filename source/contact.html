@@ -1,12 +1,14 @@
-<div class="split-page">
-  <h1 class="page-title">{{ page.name }}</h1>
-  {% if errors != blank %}
-    <ul class="errors contact-errors">
-      {% for error in errors %}
-        <li>{{ error }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
+<div class="split-page contact-page">
+  <div class="page-header">
+    <h1 class="page-title">{{ page.name }}</h1>
+    {% if errors != blank %}
+      <ul class="errors contact-errors">
+        {% for error in errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
   
   <div class="page-content contact-page-content">
     {% if contact.sent %}

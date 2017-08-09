@@ -42,7 +42,31 @@
   @media screen and (max-width: $break-small)
     padding: 0
   
-.product-card
+.products-page-products .product-card
+  margin-bottom: 100px
+  max-width: 900px
+  position: relative
+  text-align: left
+  width: 100%
+  
+  @media screen and (max-width: $break-extra-small)
+    margin-bottom: 50px
+  
+  &:nth-child(odd)
+    margin-left: auto
+    text-align: right
+    
+    .product-info
+      left: auto
+      right: calc(100% / 2.25)
+      
+      @media screen and (max-width: $break-extra-small)
+        right: 0
+      
+    .product-image
+      float: right
+
+.home-products .product-card
   margin-bottom: 100px
   max-width: 900px
   position: relative

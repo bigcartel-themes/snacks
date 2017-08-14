@@ -35,6 +35,7 @@
     font-size: 25px
     letter-spacing: 5px
     line-height: 40px
+    margin-bottom: 15px
 
 .cart-item-listing
   width: 700px
@@ -99,8 +100,6 @@ input.option-quantity
 .item-bottom-half
   display: none
 
-.item-link
-
 .item-details-price
   color: $secondary-text-color
   font-size: 15px
@@ -123,7 +122,12 @@ input.option-quantity
   
 .cart-total-amount
   color: $secondary-text-color
+
+.cart-discounts-shipping
+  margin-top: 40px
   
+.cart-shipping + .cart-discounts
+  margin-top: 25px
 
 .cart-amount 
   font-size: 13px
@@ -138,14 +142,23 @@ input.option-quantity
   border: 2px solid $accent-background-color
   height: 50px
   
-  
   select
     color: $text-color
-  
+    
   svg
     fill: $secondary-text-color
     position: relative
     right: 20px
+    
+  &:hover
+    color: $accent-background-color
+    border-color: $accent-background-color
+
+    select
+      color: $accent-background-color
+      
+    svg
+      fill: $secondary-text-color
     
 .cart-discount-status
   +pie-clearfix
@@ -156,10 +169,12 @@ input.option-quantity
   .cart-discount-code
     +appearance(none)
     border: none
+    font-size: 11px
     height: 46px
     line-height: 46px
     outline: none
-    padding-left: 30px
+    padding: 0 30px
+    width: calc(100% - 46px)
     
     
   .apply-discount

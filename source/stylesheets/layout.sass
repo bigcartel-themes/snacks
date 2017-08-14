@@ -4,7 +4,6 @@
   box-sizing: border-box
   
 html
-  font-size: 2vw
   min-height: 100%
   position: relative
   
@@ -166,6 +165,19 @@ button, a.button
     margin-left: auto
     text-align: center
     width: 75px
+
+input, textarea
+  +appearance(none)
+  border: 2px solid $text-color
+  font-family: $primary-font
+  font-size: 15px
+  letter-spacing: 2px
+  outline: none
+  padding: 10px
+  text-transform: uppercase
+  
+  &:active, &:focus
+    outline: none
 
 .header
   letter-spacing: 1px
@@ -353,7 +365,7 @@ button, a.button
     fill: $accent-text-color
     height: 29px
     position: absolute
-    right: 0
+    right: 50px
     top: 0
     width: 29px
     
@@ -379,9 +391,6 @@ button, a.button
   top: auto
   width: 100%
   z-index: 3
-  transition-property: transform
-  transition-duration: 0.3s
-  transition-delay: 0s
   
   @media screen and (max-width: $break-extra-small)
     bottom: -50px

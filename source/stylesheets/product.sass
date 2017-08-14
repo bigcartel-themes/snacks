@@ -41,9 +41,10 @@
   background-color: $accent-background-color
   float: right
   height: 25px
+  max-width: calc(100% - 100px)
   position: relative
   text-align: center
-  width: 500px
+  width: 100%
   z-index: 2
   
   &.has-controls
@@ -53,7 +54,7 @@
       height: 25px
   
   @media screen and (max-width: $break-extra-small)
-    width: 250px
+    max-width: calc(100% - 50px)
      
 .product-images-nav
   height: 75px
@@ -112,12 +113,13 @@
   
 
 .product-page-details
-  margin-left: auto
+  margin-left: 100px
   margin-top: 125px
   max-width: 500px
   width: 100%
   
   @media screen and (max-width: $break-medium)
+    margin-left: 0
     margin-top: -50px
     max-width: none
   
@@ -198,3 +200,22 @@
   
   &:hover
     text-decoration: underline
+    
+    
+@keyframes spinner
+  to
+    transform: rotate(360deg)
+ 
+.spinner:before
+  animation: spinner .6s linear infinite
+  border-radius: 50%
+  border: 2px solid $accent-text-color
+  border-top: 2px solid $accent-background-color
+  content: ''
+  height: 20px
+  left: 50%
+  margin-top: -10px
+  margin-left: -10px
+  position: absolute
+  top: 50%
+  width: 20px

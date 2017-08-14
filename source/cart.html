@@ -1,109 +1,104 @@
-<div class="cart-header">
-  <span>Keep Shopping</span>
-  <svg class="close-overlay" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg>  
-</div>
 
-
-  {% if cart.items != blank %}
-  <form method="post" action="/cart" id="cart-form" class="cart-form">
-    <div class="cart-page split-page">
-    <div class="cart-item-listing">
-      <div class="page-accent"></div>
-      
-        <ul class="cart-items">
-          {% for item in cart.items %}
-            <li class="cart-item" data-cart-id="{{ item.id }}">
-              <div class="item-top-half">
-                <div class="item-delete" data-item-id="{{ item.id }}"><svg class="close-overlay" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg></div>
-                
-                <a class="item-image" href="{{ item.product.url }}" title="View {{ item.product.name | escape }}" style="background-image:url('{{ item.product.image | product_image_url | constrain: 576, 576 }}');"></a>
-                
-                <div class="item-top-details">
+{% if cart.items != blank %}
+  <div class="cart-page">
+    <form method="post" action="/cart" id="cart-form" class="cart-form">
+      <div class="split-page">
+        <div class="cart-item-listing">
+          <div class="page-accent"></div>
+        
+          <ul class="cart-items">
+            {% for item in cart.items %}
+              <li class="cart-item" data-item-id="{{ item.id }}">
+                <div class="item-top-half">
+                  <div class="item-delete" data-item-id="{{ item.id }}"><svg class="close-overlay" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg></div>
                   
-                  <div class="item-details-name">{{ item.product.name }}</div>
-                  {% unless item.product.has_default_option %}
-                    <div class="item-details-option">{{ item.option.name }}</div>
-                  {% endunless %}
-                  <div class="item-details-price">{{ item.unit_price | money_with_sign }}</div>
+                  <a class="item-image" href="{{ item.product.url }}" title="View {{ item.product.name | escape }}" style="background-image:url('{{ item.product.image | product_image_url | constrain: 576, 576 }}');"></a>
+                  
+                  <div class="item-top-details">
+                    
+                    <div class="item-details-name">{{ item.product.name }}</div>
+                    {% unless item.product.has_default_option %}
+                      <div class="item-details-option">{{ item.option.name }}</div>
+                    {% endunless %}
+                    <div class="item-details-price">{{ item.unit_price | money_with_sign }}</div>
+                  </div>
+                  
+                  <div class="item-quantity-holder">
+                    {{ item | item_quantity_input, '', 'option-quantity' }}
+                  </div>
                 </div>
                 
-                <div class="item-quantity-holder">
-                  {{ item | item_quantity_input, '', 'option-quantity' }}
+                <div class="item-bottom-half">
+                  <a class="item-link" href="{{ item.product.url }}" title="View {{ item.product.name | escape }}" style="background-image:url('{{ item.product.image | product_image_url | constrain: 576, 576 }}');"></a>
+                    <div class="item-details-price">{{ item.unit_price | money_with_sign }}</div>
+                    <div class="item-details-name">{{ item.product.name }}</div>
+                    {% unless item.product.has_default_option %}
+                      <div class="item-details-option">{{ item.option.name }}</div>
+                    {% endunless %}
+                  </a>
                 </div>
-              </div>
-              
-              <div class="item-bottom-half">
-                <a class="item-link" href="{{ item.product.url }}" title="View {{ item.product.name | escape }}" style="background-image:url('{{ item.product.image | product_image_url | constrain: 576, 576 }}');"></a>
-                  <div class="item-details-price">{{ item.unit_price | money_with_sign }}</div>
-                  <div class="item-details-name">{{ item.product.name }}</div>
-                  {% unless item.product.has_default_option %}
-                    <div class="item-details-option">{{ item.option.name }}</div>
-                  {% endunless %}
-                </a>
-              </div>
-            </li>
-          {% endfor %}
-        </ul>
-      
-    </div>
-    <div class="cart-totals">
-      {% if cart.shipping.enabled or cart.discount.enabled %}
-        <div class="cart-discounts-shipping">
-          {% if cart.shipping.enabled %}
-            <div class="cart-shipping">
-              <div class="select country-select">
-                {{ store.country | country_select }}
-                <svg viewBox="0 0 29 29"><path d="M14.5 19.5c-.1 0-.3 0-.4-.1l-10-10 .7-.7 9.6 9.6L24 8.7l.7.7-10 10c.1.1-.1.1-.2.1z"/></svg>
-              </div>
-              <h4 class="cart-shipping-amount">
-                <span>{{ cart.shipping.amount | money_with_sign }}</span>
-              </h4>
-            </div>
-          {% endif %}
-          {% if cart.discount.enabled %}
-            <div class="cart-discounts">
-              {% if cart.discount.pending %}
-                <div class="cart-discount-status">
-                  <a href="#" title="Apply discount" class="apply-discount"><svg class="apply-discount-button" viewBox="0 0 46 46"><path d="M46 20v6H26v20h-7V26H0v-6h19V0h7v20z"/></svg></a>
-                  <input autocomplete="off" class="cart-discount-code" placeholder="Enter discount code..." name="cart[discount_code]" type="text">
-                </div>
-              {% else %}
-                <div class="cart-discount-status">
-                  <a href="#" title="Cancel discount" class="cancel-discount"><svg class="cancel-discount-button" viewBox="0 0 46 46"><path d="M46 20v6H26v20h-7V26H0v-6h19V0h7v20z"/></svg></a>
-                  <input disabled="disabled" autocomplete="off" class="cart-discount-code" placeholder="Enter discount code..." name="cart[discount_code]" type="text"{% if cart.discount.code %} value="{% if cart.discount.free_shipping %}Free shipping{% else %}{{ cart.discount.name }}{% endif %}"{% endif %}>
-                </div>
-              {% endif %}
-              {% if cart.discount.pending %}
-                <h4 class="cart-discount-amount">{{ 0 | money_with_sign }}</h4>
-              {% elsif cart.discount.free_shipping %}
-                <h4 class="cart-discount-amount"><span></span></h4>
-              {% else %}
-                <h4 class="cart-discount-amount"><span>- {{ cart.discount.amount | money_with_sign }}</span></h4>
-              {% endif %}
-            </div>
-          {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+          
         </div>
-      {% endif %}
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      {% if cart.shipping.enabled or cart.discount.enabled %}
-        <h3 class="cart-total cart-subtotal">Total: <span class="cart-total-amount">{{ cart.total | money_with_sign }}</span></h3>
-      {% else %}
-        <h3 class="cart-total">Subtotal: <span class="cart-total-amount">{{ cart.total | money_with_sign }}</span></h3>
-      {% endif %}
-    </div>
-    </div>
-    </form>
-    
-  {% else %}
+        <div class="cart-totals">
+          {% if cart.shipping.enabled or cart.discount.enabled %}
+            <h3 class="cart-total cart-subtotal">Total: <span class="cart-total-amount">{{ cart.total | money_with_sign }}</span></h3>
+            
+            <h4 class="cart-amount cart-shipping-amount">
+              Shipping: 
+              <span>{{ cart.shipping.amount | money_with_sign }}</span>
+            </h4>
+            
+            {% if cart.discount.pending %}
+              <h4 class="cart-amount cart-discount-amount">Discount: <span>{{ 0 | money_with_sign }}</span></h4>
+            {% elsif cart.discount.free_shipping %}
+              <h4 class="cart-amount cart-discount-amount">Discount: <span>Free Shipping</span></h4>
+            {% else %}
+              <h4 class="cart-amount cart-discount-amount">Discount: <span>- {{ cart.discount.amount | money_with_sign }}</span></h4>
+            {% endif %}
+            
+            <div class="cart-discounts-shipping">
+              {% if cart.shipping.enabled %}
+                <div class="cart-shipping">
+                  <div class="select country-select">
+                    {{ store.country | country_select }}
+                    <svg viewBox="0 0 29 29"><path d="M14.5 19.5c-.1 0-.3 0-.4-.1l-10-10 .7-.7 9.6 9.6L24 8.7l.7.7-10 10c.1.1-.1.1-.2.1z"/></svg>
+                  </div>
+                  
+                </div>
+              {% endif %}
+              {% if cart.discount.enabled %}
+                <div class="cart-discounts">
+                  {% if cart.discount.pending %}
+                    <div class="cart-discount-status">
+                      <a href="#" title="Apply discount" class="apply-discount"><svg class="apply-discount-button" viewBox="0 0 29 29"><path d="M15 27h-1V15H2v-1h12V2h1v12h12v1H15z"/></svg></a>
+                      <input autocomplete="off" class="cart-discount-code" placeholder="Enter discount code..." name="cart[discount_code]" type="text">
+                    </div>
+                  {% else %}
+                    <div class="cart-discount-status">
+                      <a href="#" title="Cancel discount" class="cancel-discount"><svg class="cancel-discount-button" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg></a>
+                      <input disabled="disabled" autocomplete="off" class="cart-discount-code" placeholder="Enter discount code..." name="cart[discount_code]" type="text"{% if cart.discount.code %} value="{% if cart.discount.free_shipping %}Free shipping{% else %}{{ cart.discount.name }}{% endif %}"{% endif %}>
+                    </div>
+                  {% endif %}
   
-  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+            
+          {% else %}
+            <h3 class="cart-total">Subtotal: <span class="cart-total-amount">{{ cart.total | money_with_sign }}</span></h3>
+          {% endif %}
+  
+          
+          <button type="submit" name="checkout" title="Checkout" class="button checkout-btn">Checkout</button>
+        
+        </div>
+      </div>
+    </form>
+  </div>
+{% else %}
+
+{% endif %}
 

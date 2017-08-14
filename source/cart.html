@@ -23,7 +23,7 @@
                     <div class="item-details-price">{{ item.unit_price | money_with_sign }}</div>
                   </div>
                   
-                  <div class="item-quantity-holder">
+                  <div class="item-quantity-holder" data-item-id="{{ item.id }}">
                     {{ item | item_quantity_input, '', 'option-quantity' }}
                   </div>
                 </div>

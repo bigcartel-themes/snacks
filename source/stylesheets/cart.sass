@@ -23,8 +23,10 @@
 
 .cart-page
   margin-top: 100px
-  
 
+.cart-form
+  width: 100%
+  
 .cart-totals
   margin-left: auto
   width: 400px
@@ -35,7 +37,6 @@
     line-height: 40px
 
 .cart-item-listing
-  
   width: 700px
 
 .cart-header
@@ -95,7 +96,6 @@ input.option-quantity
   text-align: center
   width: 50px
   
-
 .item-bottom-half
   display: none
 
@@ -120,3 +120,65 @@ input.option-quantity
 .item-top-details
   margin-left: 25px
   max-width: 275px
+  
+.cart-total-amount
+  color: $secondary-text-color
+  
+
+.cart-amount 
+  font-size: 13px
+  margin-bottom: 15px
+  letter-spacing: 2px
+  
+  span
+    color: $secondary-text-color
+  
+.country-select
+  background: $background-color
+  border: 2px solid $accent-background-color
+  height: 50px
+  
+  
+  select
+    color: $text-color
+  
+  svg
+    fill: $secondary-text-color
+    position: relative
+    right: 20px
+    
+.cart-discount-status
+  +pie-clearfix
+  background: $background-color
+  border: 2px solid $accent-background-color
+  height: 50px
+  
+  .cart-discount-code
+    +appearance(none)
+    border: none
+    height: 46px
+    line-height: 46px
+    outline: none
+    padding-left: 30px
+    
+    
+  .apply-discount
+    background: $accent-background-color
+    float: right
+    font-size: 11px
+    height: 46px
+    text-align: center
+    width: 46px
+    
+    svg
+      +vertical-align
+      fill: $accent-text-color
+      height: 25px
+      width: 25px
+      
+    
+    
+  
+.checkout-btn
+  margin-top: 50px
+  

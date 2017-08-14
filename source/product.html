@@ -14,11 +14,11 @@
     <div class="product-page-accent{% if product.images.size > 1 %} has-controls{% endif %}">
       {% if product.images.size > 1 %}
         <ul class="product-images-nav">
-          <li class="nav-control prev-image"><a class="flex-prev" href="#"><</a></li>
+          <li class="nav-control prev-image"><a class="flex-prev" href="#"><svg viewBox="0 0 29 29"><path d="M14.5 19.5c-.1 0-.3 0-.4-.1l-10-10 .7-.7 9.6 9.6L24 8.7l.7.7-10 10c.1.1-.1.1-.2.1z"/></svg></a></li>
           {% for image in product.images %}
             <li class="nav-icon"><a href="#"></a>
           {% endfor %}
-          <li class="nav-control next-image"><a class="flex-next" href="#">></a></li>
+          <li class="nav-control next-image"><a class="flex-next" href="#"><svg viewBox="0 0 29 29"><path d="M14.5 19.5c-.1 0-.3 0-.4-.1l-10-10 .7-.7 9.6 9.6L24 8.7l.7.7-10 10c.1.1-.1.1-.2.1z"/></svg></a></li>
         </ul>
       {% endif %}
     </div>

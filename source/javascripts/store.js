@@ -10,6 +10,7 @@ API.onError = function(errors) {
   if ($cartError.length > 0) {
     $cartError.find('.errors').remove();
     $cartError.prepend($errorList);
+    $errorList.addClass('cart-errors');
     $("html, body").animate({ scrollTop: 0 }, "fast");
   } else if ($productError.length > 0) {
     $productError.find('.errors').hide();

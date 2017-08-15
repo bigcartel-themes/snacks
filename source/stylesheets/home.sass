@@ -9,22 +9,30 @@
   display: block
   position: relative
   width: 100%
+  
+  @media screen and (max-width: $break-small)
+    width: calc(100% + 25px)
 
 .welcome-message
   background: $accent-background-color
   color: $accent-text-color
   float: right
-  max-width: 88%
+  max-width: calc(100% - 200px)
   padding: 100px
   position: relative
   text-align: right
   width: 100%
   
   @media screen and (max-width: $break-small)
+    max-width: calc(88% + 25px)
     padding: 50px 25px
-
+    right: -25px
+    
 .welcome-image + .welcome-message
   top: -100px
+  
+  @media screen and (max-width: $break-small)
+    top: -25px
   
 .welcome-header
   color: $accent-text-color

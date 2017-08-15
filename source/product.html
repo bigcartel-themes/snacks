@@ -82,7 +82,7 @@
       <div class="overlay-header">Select an option</div>
       <ul class="overlay-links product-options-list">
         {% for option in product.options %}
-          <li data-option-id="{{ option.id }}" {% if option.sold_out %} class="disabled"{% endif %}>{{ option.name }} - {{ option.price | money_with_sign }} {% if option.sold_out %}(Sold out){% endif %}</li>
+          <li data-option-id="{{ option.id }}" {% if option.sold_out %} class="disabled"{% endif %}><span>{{ option.name }} - {{ option.price | money_with_sign }} {% if option.sold_out %}(Sold out){% endif %}</span></li>
         {% endfor %}
       </ul>
     </div>

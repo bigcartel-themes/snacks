@@ -81,19 +81,6 @@
         </div>
       </div>
     </footer>
-    
-    <div class="overlay shop-overlay">
-      <div class="wrapper">
-        <svg class="close-overlay" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg>
-        <div class="overlay-header">Shop by</div>
-        <ul class="overlay-links">
-          <li class="overlay-link"><a href="/products" title="Products">All Products</a></li>
-          {% for category in categories.active %}
-            <li class="overlay-link">{{ category | link_to }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-    </div>
     <a class="footer-overlay {% if cart.item_count > 0 %}visible{% endif %}" href="{% if page.full_url contains '/cart' %}/products{% else %}/cart{% endif %}">
       <div class="wrapper header-items hidden-items">
         <span class="cart-item-title">Keep shopping</span>

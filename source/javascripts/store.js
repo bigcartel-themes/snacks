@@ -10,6 +10,7 @@ API.onError = function(errors) {
   if ($cartError.length > 0) {
     $cartError.find('.errors').remove();
     $cartError.prepend($errorList);
+    $(errorList).insertBefore('.cart-items');
     $errorList.addClass('cart-errors');
     $("html, body").animate({ scrollTop: 0 }, "fast");
   } else if ($productError.length > 0) {
@@ -21,8 +22,14 @@ API.onError = function(errors) {
 $(function() {
   // Open the Shop overlay from 'Shop' title and Categories
   $('.category-navigation').click(function(e) {
-    $('html').toggleClass('overlay-open');
     $('.shop-overlay').toggleClass('open');
+        setTimeout(function() {
+          $('html').toggleClass('overlay-open');
+        }, 300);
+    
+    
+    
+    
     return false;
   });
   
@@ -146,8 +153,9 @@ $(function() {
         $('.footer-overlay').addClass('open');
         $('.cart-overlay').addClass('open');
       });
-      
-      $('html').addClass('overlay-open');
+      setTimeout(function() {
+          $('html').toggleClass('overlay-open');
+        }, 300);
     }
     
   });

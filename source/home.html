@@ -20,7 +20,7 @@
   </div>
 {% endif %}
         
-{% paginate products from products.current by theme.products_per_page %}
+{% paginate products from products.current by theme.featured_products %}
   {% if products != blank %}
     <ul class="home-products product-list">
       {% for product in products %}

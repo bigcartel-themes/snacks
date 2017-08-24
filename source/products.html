@@ -1,9 +1,24 @@
 <div class="category-navigation">
-  {% if page.full_url contains "/products" %}All Products{% else %}{{ page.name }}{% endif %}
-  <svg viewBox="0 0 29 29"><path d="M27 22H2v-1h25v1zm0-7H2v-1h25v1zm0-7H2V7h25v1z"/></svg>
+  <div class="navigation-header">
+    <span class="navigation-title" data-menu-title="Shop By">{% if page.full_url contains "/products" %}All Products{% else %}{{ page.name }}{% endif %}</span>
+    <div class="nav-icon">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div class="shop-dropdown">
+    <ul class="overlay-links">
+      <li class="overlay-link"><a href="/products" title="Products">All Products</a></li>
+      {% for category in categories.active %}
+        <li class="overlay-link">{{ category | link_to }}</li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>
 
-{% paginate products from products.current by theme.products_per_page %}
+{% paginate products from products.current by 12 %}
   {% if products != blank %}
     <ul class="products-page-products product-list">
       {% for product in products %}
@@ -34,9 +49,12 @@
       {% endfor %}
     </ul>
     {% if paginate.pages > 1 %}
+    
+      <a class="button shop-all-products view-more-button">Load Products</a>
+      
       <div class="pagination"><a class="button next-button paginate-button" href="{{ paginate.next.url }}">{{ paginate.next.title }}</a></div>
       
-      <div class="page-load-status">
+      <div class="page-load-status" style="display: none;">
         <div class="infinite-scroll-request">
           <div class="spinner"></div>
           <div class="loading-more">Loading More</div>
@@ -49,17 +67,3 @@
     <div class="empty-products"><p class="no-products-message">No products found.</p></div>
   {% endif %}
 {% endpaginate %}
-
-
-<div class="overlay shop-overlay">
-  <div class="wrapper">
-    <svg class="close-overlay" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg>
-    <div class="overlay-header">Shop by</div>
-    <ul class="overlay-links">
-      <li class="overlay-link"><a href="/products" title="Products">All Products</a></li>
-      {% for category in categories.active %}
-        <li class="overlay-link">{{ category | link_to }}</li>
-      {% endfor %}
-    </ul>
-  </div>
-</div>

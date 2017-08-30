@@ -12,7 +12,7 @@
   right: 0
   top: 100vh
   width: 100%
-  z-index: 2
+  z-index: 5
   
   .wrapper
     +flexbox
@@ -31,6 +31,10 @@
   margin-left: 100px
   width: 400px
   
+  @media screen and (max-width: $break-extra-small)
+    margin-left: 0
+    width: 100%
+  
   h3
     font-size: 25px
     letter-spacing: 5px
@@ -38,8 +42,9 @@
     margin-bottom: 15px
 
 .cart-item-listing
-  width: 700px
-
+  max-width: 700px
+  width: 100%
+  
 .cart-header
   display: none
 
@@ -81,6 +86,10 @@
   background-size: cover
   height: 100px
   width: 200px
+  
+  @media screen and (max-width: $break-extra-small)
+    +flex(0 0 150px)
+    width: 150px
 
 .item-quantity-holder
   margin-left: auto
@@ -98,6 +107,13 @@ input.option-quantity
   
 .item-bottom-half
   display: none
+  padding-top: 25px
+  
+  @media screen and (max-width: $break-extra-small)
+    display: block
+    
+  .item-details-price
+    float: right
 
 .item-details-price
   color: $secondary-text-color
@@ -118,6 +134,9 @@ input.option-quantity
 .item-top-details
   margin-left: 25px
   max-width: 275px
+  
+  @media screen and (max-width: $break-extra-small)
+    display: none
   
 .cart-total-amount
   color: $secondary-text-color
@@ -175,7 +194,7 @@ input.option-quantity
     padding: 0 30px
     width: calc(100% - 46px)
     
-  .apply-discount
+  .apply-discount, .cancel-discount
     background: $accent-background-color
     float: right
     font-size: 11px
@@ -188,6 +207,9 @@ input.option-quantity
       fill: $accent-text-color
       height: 25px
       width: 25px
+      
+  .cancel-discount svg
+    +transform(translateY(-50%) rotate(45deg))
 
 .checkout-btn
   margin-top: 50px

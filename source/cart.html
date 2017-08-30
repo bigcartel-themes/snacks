@@ -5,7 +5,13 @@
       <div class="split-page">
         <div class="cart-item-listing">
           <div class="page-accent"></div>
-        
+          {% if errors != blank %}
+            <ul class="errors home-errors">
+              {% for error in errors %}
+                <li>{{ error }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
           <ul class="cart-items">
             {% for item in cart.items %}
               <li class="cart-item" data-item-id="{{ item.id }}">
@@ -29,7 +35,7 @@
                 </div>
                 
                 <div class="item-bottom-half">
-                  <a class="item-link" href="{{ item.product.url }}" title="View {{ item.product.name | escape }}" style="background-image:url('{{ item.product.image | product_image_url | constrain: 576, 576 }}');"></a>
+                  <a class="item-link" href="{{ item.product.url }}"></a>
                     <div class="item-details-price">{{ item.unit_price | money_with_sign }}</div>
                     <div class="item-details-name">{{ item.product.name }}</div>
                     {% unless item.product.has_default_option %}
@@ -47,8 +53,7 @@
             <h3 class="cart-total cart-subtotal">Total: <span class="cart-total-amount">{{ cart.total | money_with_sign }}</span></h3>
             
             <h4 class="cart-amount cart-shipping-amount">
-              Shipping: 
-              <span>{{ cart.shipping.amount | money_with_sign }}</span>
+              Shipping: <span>{{ cart.shipping.amount | money_with_sign }}</span>
             </h4>
             
             {% if cart.discount.pending %}
@@ -92,7 +97,7 @@
           {% endif %}
   
           
-          <button type="submit" name="checkout" title="Checkout" class="button checkout-btn">Checkout</button>
+          <button type="submit" name="checkout" title="Checkout" class="button checkout-btn"><span>Checkout</span></button>
         
         </div>
       </div>

@@ -42,6 +42,7 @@
   +flexbox
   +align-items(center)
   +flex-direction(row)
+  +justify-content(space-around)
   height: 75px
   position: relative
   width: 100%
@@ -73,11 +74,9 @@
       
     &.right-arrow
       +transform(rotate(-90deg))
-  
-  .flex-next
-    margin-left: auto
     
   .custom-controls-container
+    margin: 0 auto
     max-width: 100px
     width: 100%
     
@@ -146,16 +145,7 @@
   +pie-clearfix
   margin-bottom: 60px
   position: relative
-  
-  .select
-    border-right: 1px solid $background-color
-    float: left
-    max-width: calc(100% - 100px)
-    padding: 0 40px 0 50px
-    
-    select
-      padding-left: 0
-    
+
   .errors
     margin-bottom: 50px
     
@@ -173,6 +163,16 @@
       fill: $accent-text-color
       height: 25px
       width: 25px
+      
+  
+.option-navigation
+  border-right: 1px solid $background-color
+  float: left
+  margin-left: 0
+  max-width: calc(100% - 100px)
+  
+  @media screen and (max-width: $break-extra-small)
+    height: 50px
 
 .single-option
   +flexbox
@@ -194,55 +194,16 @@
   @media screen and (max-width: $break-extra-small)
     height: 50px
 
-.product-quantity
+.product-quantity, #option
   display: none
 
-.status-text
+.status-icon
   display: block
   margin: 0 auto
   
 .status-adding
   opacity: 0
-  
-.product-option-dropdown
-  background-color: $accent-background-color
-  color: $accent-text-color
-  cursor: pointer
-  font-size: 11px
-  letter-spacing: 2px
-  line-height: 40px
-  max-height: 400px
-  max-width: calc(100% - 101px)
-  height: auto
-  overflow-y: auto
-  display: none
-  position: absolute
-  top: 100%
-  left: 0
-  width: 100%
-  z-index: 3
-  padding: 0 50px 35px
-
-  .product-options-list
-    list-style: none
-    margin: 0
-    padding: 0
     
-    li
-      cursor: pointer
-      
-      > span
-        padding-bottom: 2px
-        
-        &:hover
-          border-bottom: 1px solid $accent-text-color
-        
-  &.open
-    visibility: visible
-    opacity: 1
-    transform: translateY(0%)
-    transition-delay: 0s, 0s, 0.3s
-  
 .product-description
   font-size: 15px
   line-height: 30px
@@ -253,7 +214,7 @@
     transform: rotate(360deg)
  
 .spinner:before
-  animation: spinner .6s linear infinite
+  +animation(spinner .6s linear infinite)
   border-radius: 50%
   border: 1px solid $accent-text-color
   border-top: 1px solid $accent-background-color

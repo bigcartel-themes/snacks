@@ -1,21 +1,25 @@
-<div class="category-navigation">
+<div class="dropdown-navigation category-navigation">
   <div class="navigation-header">
-    <span class="navigation-title" data-menu-title="Shop By">{% if page.full_url contains "/products" %}All Products{% else %}{{ page.name }}{% endif %}</span>
-    <div class="nav-icon">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
+    <h2 class="navigation-title" data-menu-title="Shop By">{% if page.full_url contains "/products" %}All Products{% else %}{{ page.name }}{% endif %}</h2>
+    {% if categories.active != blank or artists.active != blank %}
+      <div class="nav-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    {% endif %}
+  </div>
+  {% if categories.active != blank or artists.active != blank %}
+    <div class="shop-dropdown">
+      <ul class="dropdown-links">
+        <li class="dropdown-link"><a href="/products" title="Products">All Products</a></li>
+        {% for category in categories.active %}
+          <li class="dropdown-link">{{ category | link_to }}</li>
+        {% endfor %}
+      </ul>
     </div>
-  </div>
-  <div class="shop-dropdown">
-    <ul class="overlay-links">
-      <li class="overlay-link"><a href="/products" title="Products">All Products</a></li>
-      {% for category in categories.active %}
-        <li class="overlay-link">{{ category | link_to }}</li>
-      {% endfor %}
-    </ul>
-  </div>
+  {% endif %}
 </div>
 
 {% paginate products from products.current by 12 %}

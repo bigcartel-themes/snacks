@@ -13,6 +13,7 @@
   input, textarea
     font-size: 15px
     padding: 25px
+    text-transform: none
     width: 100%
   
   input
@@ -70,6 +71,9 @@
   line-height: 40px
   padding: 100px
   text-transform: uppercase
+  
+  @media screen and (max-width: $break-small)
+    padding: 50px 25px
 
 .contact-success-face
   fill: $accent-text-color

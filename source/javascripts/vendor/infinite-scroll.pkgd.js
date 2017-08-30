@@ -1203,7 +1203,9 @@ proto.getPrefillDistance = function() {
 };
 
 proto.stopPrefill = function() {
-  console.log('stopping prefill');
+  if ( this.options.debug && console ) {
+    console.log('stopping prefill');
+  }
   this.off( 'append', this.prefill );
 };
 

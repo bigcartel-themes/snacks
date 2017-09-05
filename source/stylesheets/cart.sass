@@ -12,9 +12,41 @@
   right: 0
   top: 100vh
   width: 100%
-  z-index: 5
+  z-index: 6
   
-  .wrapper
+  .keep-shopping
+    +transition(all .3s)
+    background: $accent-background-color
+    bottom: -100px
+    color: $accent-text-color !important
+    font-size: 11px
+    height: 100px
+    left: 0
+    letter-spacing: 2px
+    line-height: 100px
+    padding: 0
+    position: absolute
+    text-align: left
+    top: 0
+    width: 100%
+    z-index: 6
+    
+    @media screen and (max-width: $break-large)
+      height: 75px
+      line-height: 75px
+    
+    .wrapper
+      +flexbox
+      +justify-content(flex-start)
+      +align-items(center)
+      
+    .close-icon
+      fill: $accent-text-color
+      height: 29px
+      margin-left: auto
+      width: 29px
+  
+  > .wrapper
     +flexbox
     padding-top: 100px
   

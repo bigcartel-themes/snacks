@@ -81,7 +81,7 @@
         </div>
       </div>
     </footer>
-    <a class="footer-overlay {% if cart.item_count > 0 %}visible{% endif %}{% if page.permalink == 'cart' %} open{% endif %}" href="{% if page.full_url contains '/cart' %}/products{% else %}/cart{% endif %}">
+    <a class="footer-overlay {% if cart.item_count > 0 %}visible{% endif %}" href="/cart">
       <div class="wrapper header-items hidden-items">
         <span class="cart-item-title">Keep shopping</span>
         <svg class="close-icon footer-icon" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg>
@@ -92,6 +92,12 @@
       </div>
     </a>
     <div class="cart-overlay">
+      <a class="keep-shopping visible{% if page.permalink == 'cart' %} open{% endif %}" href="/products">
+        <div class="wrapper header-items">
+          <span class="cart-item-title">Keep shopping</span>
+          <svg class="close-icon footer-icon" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg>
+        </div>
+      </a>
       <div class="wrapper">
       </div>
     </div>

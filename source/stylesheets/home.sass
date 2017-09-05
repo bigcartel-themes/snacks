@@ -9,9 +9,6 @@
   display: block
   position: relative
   width: 100%
-  
-  @media screen and (max-width: $break-small)
-    width: calc(100% + 25px)
 
 .welcome-message
   background: $accent-background-color
@@ -23,10 +20,13 @@
   text-align: right
   width: 100%
   
+  @media screen and (max-width: $break-large)
+    max-width: calc(100% - 50px)
+    padding: 50px
+  
   @media screen and (max-width: $break-small)
-    max-width: calc(88% + 25px)
+    max-width: calc(100% - 25px)
     padding: 50px 25px
-    right: -25px
     
 .welcome-image + .welcome-message
   top: -100px
@@ -40,7 +40,12 @@
   letter-spacing: 10px
   line-height: 50px
   text-align: right
-
+  
+  @media screen and (max-width: $break-small)
+    font-size: 30px
+    letter-spacing: 5px
+    line-height: 40px
+    
 .welcome-subheader
   color: $accent-text-color
   font-size: 13px

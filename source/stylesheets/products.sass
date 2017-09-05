@@ -57,7 +57,8 @@
       left: auto
       right: calc(100% / 2.25)
       
-      @media screen and (max-width: $break-extra-small)
+      @media screen and (max-width: $break-small)
+        left: 25px
         right: 0
       
     .product-image
@@ -102,6 +103,11 @@
   top: 50px
   width: calc(100% / 2)
   z-index: 2
+  
+  @media screen and (max-width: $break-small)
+    font-size: 20px
+    letter-spacing: 5px
+    line-height: 30px
   
   @media screen and (max-width: $break-extra-small)
     left: 0

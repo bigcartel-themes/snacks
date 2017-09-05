@@ -48,30 +48,38 @@
   	{% if product.status == 'active' %}
       <form action="/cart" class="product-form" method="post">
         {% if product.has_default_option %}
-          <div class="single-option" data-added-text="Added to cart" data-adding-text="Adding to cart">Add to Cart</div>
+          <div class="single-option">Add to Cart</div>
           {{ product.option | hidden_option_input }}
         {% else %}
+          {% assign num_options = product.options_in_stock | size %}
+          {% if num_options == 1 %}
+            {% for option in product.options_in_stock	 %}
+              <div class="single-option">{{ option.name }}{% if option.price != product.default_price %} - {{ option.price | money_with_sign }}{% endif %}</div>
+              <input id="option" name="cart[add][id]" type="hidden" value="{{ option.id }}">
+            {% endfor %}
+          {% else %}
           {{ product.options_in_stock | options_select }}
-          <div class="dropdown-navigation option-navigation">
-            <div class="navigation-header">
-              <div class="navigation-title" data-menu-title="Options"></div>
-              <div class="nav-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="dropdown-navigation option-navigation">
+              <div class="navigation-header">
+                <div class="navigation-title" data-menu-title="Options"></div>
+                <div class="nav-icon">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+              <div class="shop-dropdown">
+                <ul class="product-option-links dropdown-links">
+                  {% for option in product.options_in_stock	 %}
+                    <li class="dropdown-link" data-option-id="{{ option.id }}" {% if option.sold_out %} class="disabled"{% endif %}>
+                      <span>{{ option.name }}{% if option.price != product.default_price %} - {{ option.price | money_with_sign }}{% endif %} {% if option.sold_out %}(Sold out){% endif %}</span>
+                    </li>
+                  {% endfor %}
+                </ul>
               </div>
             </div>
-            <div class="shop-dropdown">
-              <ul class="product-option-links dropdown-links">
-                {% for option in product.options_in_stock	 %}
-                  <li class="dropdown-link" data-option-id="{{ option.id }}" {% if option.sold_out %} class="disabled"{% endif %}>
-                    <span>{{ option.name }}{% if option.price != product.default_price %} - {{ option.price | money_with_sign }}{% endif %} {% if option.sold_out %}(Sold out){% endif %}</span>
-                  </li>
-                {% endfor %}
-              </ul>
-            </div>
-          </div>
+          {% endif %}
         {% endif %}
         {{ product | product_quantity_input, 1, 'product-quantity', 'product-quantity' }}
         <button class="button add-to-cart-button" type="submit">

@@ -1,8 +1,13 @@
-
+<a class="keep-shopping visible{% if page.permalink == 'cart' %} open{% endif %}" href="/products">
+  <div class="wrapper header-items">
+    <span class="cart-item-title">Keep shopping</span>
+    <svg class="close-icon footer-icon" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg>
+  </div>
+</a>
 {% if cart.items != blank %}
   <div class="cart-page">
     <form method="post" action="/cart" id="cart-form" class="cart-form">
-      <div class="split-page">
+      <div class="split-page cart-split-page">
         <div class="cart-item-listing">
           <div class="page-accent"></div>
           {% if errors != blank %}
@@ -46,6 +51,8 @@
               </li>
             {% endfor %}
           </ul>
+          
+          <button type="submit" name="checkout" title="Checkout" class="button checkout-btn"><span class="underline">Checkout</span></button>
           
         </div>
         <div class="cart-totals">

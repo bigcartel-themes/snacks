@@ -182,9 +182,7 @@ var toggleCart = function(state, item_count) {
   if (state == 'hide') { 
     $('.cart-overlay').removeClass('open');
     $('html').removeClass('overlay-open');
-    console.log('state was hide');
     if (item_count == 0) {
-      console.log('closer the footer');
       $('.footer-overlay').removeClass('visible');
     }
   }
@@ -203,7 +201,6 @@ var updateTotals = function(cart) {
   var item_count = cart.item_count;
   $('.cart-errors').remove();
   if (item_count == 0) {
-    console.log('it is zerrrrrrro');
     toggleCart('hide', item_count);
   }
   else { 

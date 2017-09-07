@@ -11,33 +11,28 @@
   @media screen and (max-width: $break-medium)
     +flex-direction(column)
     
-.flex-viewport
-  width: 100%
-  
-.flexslider
-  margin: 0
+.slick-slider
+  clear: both
   
 .product-page-images
   +pie-clearfix
   max-width: 600px
   width: 100%
   
-  @media screen and (max-width: $break-medium)
-    max-width: none
-
-  .product-images-list
-    list-style: none
-    margin: 0
-    padding: 0
-    
-    li
+  @media screen and (min-width: 1025px)
+    .product-list-image
       margin-bottom: 50px
-      
-      img
-        display: block
-        width: 100%
+  
+  @media screen and (max-width: $break-medium)
+    max-width: 100%
     
-     
+  .image
+    display: block
+    width: 100%
+  
+  img
+    width: 100%
+
 .custom-navigation
   +flexbox
   +align-items(center)
@@ -73,20 +68,28 @@
     max-width: 100px
     width: 100%
     
-  .flex-control-nav
+  .slick-dots
     bottom: auto
-    height: 6px
+    margin: 0
+    padding: 0
     position: relative
     text-align: center
-    width: 100%
+    width: auto
     
-  .flex-control-paging li a
-    border: 1px solid $accent-text-color
-    box-shadow: none
+  .slick-dots li
+    border-radius: 50%
     height: 6px
     width: 6px
     
-  .flex-control-paging li a.flex-active
+  .slick-dots li button
+    border-radius: 50%
+    border: 1px solid $accent-text-color
+    box-shadow: none
+    height: 6px
+    padding: 0
+    width: 6px
+    
+  .slick-dots li.slick-active button
     background: $accent-text-color
         
 .product-page-accent

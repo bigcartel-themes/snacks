@@ -24,7 +24,7 @@
     <div class="content">
       <div class="wrapper">
         
-        {% if page.category == 'custom' %}
+        {% if page.category == 'custom' or page.permalink == 'success' %}
           <div class="split-page custom-page">
             <div class="page-header">
               <h1 class="custom-title page-title">{{ page.name }}</h1>

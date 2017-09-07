@@ -17,6 +17,9 @@
   > .wrapper
     +flexbox
     padding-top: 100px
+    
+    @media screen and (max-width: $break-medium)
+      padding-top: 50px
   
   &.open
     top: 0
@@ -55,7 +58,10 @@
 
 .cart-page
   +flexbox
-  margin-top: 100px
+  margin-top: 150px
+  
+  @media screen and (max-width: $break-medium)
+    margin-top: 100px
   
 .cart-form
   width: 100%
@@ -67,9 +73,6 @@
   @media screen and (max-width: $break-small)
     margin-left: 0
     width: 100%
-    
-    .checkout-btn
-      display: none
   
   h3
     font-size: 25px
@@ -81,7 +84,14 @@
   max-width: 700px
   width: 100%
   
+  .checkout-btn
+    display: none
+  
   @media screen and (max-width: $break-medium)
+    .page-accent
+      margin-top: 50px
+      max-width: 100%
+      
     .checkout-btn
       display: none
   
@@ -160,6 +170,7 @@ input.option-quantity
     display: block
     
     .item-details-name, .item-details-option
+      clear: left
       float: left
       width: 200px
     

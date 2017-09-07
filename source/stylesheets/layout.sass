@@ -24,6 +24,12 @@ body
     background: $accent-background-color
     color: $accent-text-color
     
+  &.checkout-page
+    +flexbox
+    +align-items(center)
+    +justify-content(center)
+    padding: 100px
+    
 .maintenance-content
   height: 100vh
   display: flex
@@ -328,6 +334,15 @@ input, textarea
       
   a
     text-decoration: underline
+
+a.continue-shopping-button
+  margin-top: 50px
+  max-width: 300px
+  text-decoration: none
+  width: 100%
+  
+  @media screen and (max-width: $break-small)
+    max-width: 100%
 
 .errors
   color: $error-color

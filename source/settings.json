@@ -1,6 +1,6 @@
 {
   "name": "Snacks",
-  "version": "0.0.68",
+  "version": "0.0.70",
   "images": [
     {
       "variable": "logo",
@@ -59,14 +59,14 @@
       "label": "Welcome header",
       "type": "text",
       "description": "Welcome header for homepage",
-      "default": "Welcome to the Snacks theme"
+      "default": "Welcome to Snacks"
     },
     {
       "variable": "welcome_subheader",
       "label": "Welcome subheader",
       "type": "text",
       "description": "Welcome subheader for homepage",
-      "default": "Free Snacks for everyone. No strings attached."
+      "default": "A little theme with a lot of personality."
     },
     {
       "variable": "featured_products",
@@ -80,36 +80,31 @@
       "variable": "twitter_url",
       "label": "Twitter URL",
       "type": "text",
-      "description": "Ex: http://twitter.com/bigcartel",
-      "default": "http://blah.com"
+      "description": "Ex: http://twitter.com/bigcartel"
     },
     {
       "variable": "facebook_url",
       "label": "Facebook URL",
       "type": "text",
-      "description": "Ex: http://facebook.com/bigcartel",
-      "default": "http://blah.com"
+      "description": "Ex: http://facebook.com/bigcartel"
     },
     {
       "variable": "tumblr_url",
       "label": "Tumblr URL",
       "type": "text",
-      "description": "Ex: http://bigcartel.tumblr.com",
-      "default": "http://blah.com"
+      "description": "Ex: http://bigcartel.tumblr.com"
     },
     {
       "variable": "instagram_url",
       "label": "Instagram URL",
       "type": "text",
-      "description": "Ex: http://instagram.com/bigcartel",
-      "default": "http://blah.com"
+      "description": "Ex: http://instagram.com/bigcartel"
     },
     {
       "variable": "pinterest_url",
       "label": "Pinterest URL",
       "type": "text",
-      "description": "Ex: http://pinterest.com/bigcartel",
-      "default": "http://blah.com"
+      "description": "Ex: http://pinterest.com/bigcartel"
     }
   ],
   "checkout": {

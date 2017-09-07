@@ -10,7 +10,7 @@ API.onError = function(errors) {
   $.each(errors, function(index, error) {
     $errorList.append($('<li>').html(error));
   });
-  if ($cartForm.length) {
+  if ($('.cart-overlay').hasClass('open') || $("body#cart").length) {
     $errorList.insertBefore('.cart-items');
     $errorList.addClass('cart-errors');
     $("html, body").animate({ scrollTop: 0 }, "fast");

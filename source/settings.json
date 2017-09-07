@@ -1,6 +1,6 @@
 {
   "name": "Snacks",
-  "version": "0.0.5",
+  "version": "0.0.68",
   "images": [
     {
       "variable": "logo",
@@ -10,7 +10,7 @@
     {
       "variable": "welcome_image",
       "label": "Welcome image",
-      "description": "1200px by 800px images recommended",
+      "description": "1200px by 750px images recommended",
       "default": "welcome-image.png"
     }
   ],
@@ -59,22 +59,22 @@
       "label": "Welcome header",
       "type": "text",
       "description": "Welcome header for homepage",
-      "default": "Welcome to Snacks"
+      "default": "Welcome to the Snacks theme"
     },
     {
       "variable": "welcome_subheader",
       "label": "Welcome subheader",
       "type": "text",
       "description": "Welcome subheader for homepage",
-      "default": "Free Snacks for everyone"
+      "default": "Free Snacks for everyone. No strings attached."
     },
     {
-      "variable": "products_per_page",
-      "label": "Products per page",
+      "variable": "featured_products",
+      "label": "Featured products",
       "type": "select",
-      "options": "1..100",
-      "default": 12,
-      "description": "The number of products shown per page"
+      "options": "0..100",
+      "default": 0,
+      "description": "The number of products shown on the Home page"
     },
     {
       "variable": "twitter_url",
@@ -111,5 +111,71 @@
       "description": "Ex: http://pinterest.com/bigcartel",
       "default": "http://blah.com"
     }
-  ]
+  ],
+  "checkout": {
+    "header_image": "{{ logo }}",
+    "header_image_max_width": "600px",
+    "header_image_max_height": "120px",
+    "title_font": "{{ primary_font }}",
+    "title_font_weight": "normal",
+    "title_font_size": "22px",
+    "title_color": "{{ text_color }}",
+    "title_background_color": "{{ background_color }}",
+    "title_vertical_padding": "27px",
+    "background_color": "{{ background_color }}",
+    "body_font": "{{ primary_font }}",
+    "body_font_size": "14px",
+    "step_border_color": "{{ background_color }}",
+    "step_header_color": "{{ text_color }}",
+    "step_border_width": "4px",
+    "step_border_style": "solid",
+    "step_border_radius": "0px",
+    "step_inactive_header_color": " {{ text_color }}",
+    "step_header_font": "{{ primary_font }}",
+    "step_background_color": "{{ background_color }}",
+    "background_color": "{{ background_color }}",
+    "content_header_background_color": "{{ background_color }}",
+    "content_header_color": "{{ text_color }}",
+    "content_color": "{{ text_color }}",
+    "content_header_font_size": "18px",
+    "content_border_color": "transparent", 
+    "content_border_radius": "0px",
+    "error_background_color": "#ea4859",
+    "error_color": "#ffffff",
+    "error_border_radius": "0px",
+    "error_border_color": "#ea4859",
+    "input_focus_color": "#000000",
+    "input_focus_background_color": "#ffffff",
+    "input_focus_border_color": "#777777",
+    "input_error_border_color": "#ea4859",
+    "input_color": "#000000",
+    "input_error_color": "#000000",
+    "input_border_color": "#bfbfbf",
+    "input_background_color": "#ffffff",
+    "input_error_background_color": "#ffffff",
+    "input_border_radius": "0px",
+    "input_border_width": "2px",
+    "input_font": "{{ primary_font }}",
+    "accent_background_color": "{{ accent_text_color }}",
+    "button_border_width": "0px",
+    "button_border_radius": "0px",
+    "button_font": "{{ primary_font }}",
+    "button_hover_color": "{{ accent_text_color }}",
+    "accent_background_color": "{{ accent_background_color }}",
+    "button_hover_background_color": "{{ accent_background_color }}",
+    "button_border_color": "{{ accent_background_color }}",
+    "button_hover_border_color": "{{ accent_background_color }}",
+    "button_text_transform": "none",
+    "link_color": "{{ link_color }}",
+    "link_hover_color": "{{ text_color }}",
+    "step_header_color": "{{ text_color }}",
+    "step_header_font_size": "18px",
+    "summary_color": "{{ text_color }}",
+    "summary_secondary_color": "{{ text_color }}",
+    "summary_item_border_color": "{{ background_color }}",
+    "summary_item_list_border_color": "{{ background_color }}",
+    "summary_submit_background_color": "{{ background_color }}",
+    "summary_submit_border_color": "{{ background_color }}",
+    "summary_submit_border_width": "4px"
+  }
 }

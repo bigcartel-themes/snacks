@@ -162,6 +162,9 @@
     position: relative
     width: 100%
     
+    @media screen and (max-width: $break-small)
+      max-width: 75px
+    
     .add-icon
       display: block
       fill: $accent-text-color
@@ -176,8 +179,8 @@
   margin-bottom: 0
   max-width: calc(100% - 100px)
   
-  @media screen and (max-width: $break-extra-small)
-    height: 50px
+  @media screen and (max-width: $break-small)
+    max-width: calc(100% - 75px)
 
 .single-option
   +flexbox
@@ -195,6 +198,14 @@
   padding: 0 50px
   position: relative
   width: 100%
+  
+  @media screen and (max-width: $break-small)
+    max-width: calc(100% - 75px)
+    padding: 0 25px
+  
+  &.has-multiple
+    line-height: 16px
+    
 
 .product-quantity, #option
   display: none

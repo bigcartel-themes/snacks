@@ -165,11 +165,21 @@
     @media screen and (max-width: $break-small)
       max-width: 75px
     
-    .add-icon
+    .status-icon
       display: block
-      fill: $accent-text-color
-      height: 25px
-      width: 25px
+      margin: 0
+      text-align: center
+      width: 100%
+    
+      svg
+        display: block
+        fill: $accent-text-color
+        height: 25px
+        margin: 0 auto
+        width: 25px
+        
+      &.success-icon
+        display: none
       
   
 .option-navigation
@@ -206,17 +216,9 @@
   &.has-multiple
     line-height: 16px
     
-
 .product-quantity, #option
   display: none
 
-.status-icon
-  display: block
-  margin: 0 auto
-  
-.status-adding
-  opacity: 0
-    
 .product-description
   font-size: 15px
   line-height: 30px
@@ -239,10 +241,3 @@
   position: absolute
   top: 50%
   width: 20px
-
-.success-icon
-  display: none
-  fill: $accent-text-color
-  height: 25px
-  margin: 0 auto
-  width: 25px

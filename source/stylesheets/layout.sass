@@ -20,6 +20,9 @@ body
   line-height: 1
   text-transform: uppercase
   
+  &.cart-footer
+    padding-bottom: 50px
+  
   &.maintenance-page
     background: $accent-background-color
     color: $accent-text-color
@@ -256,7 +259,7 @@ input, textarea
     +align-items(flex-start)
     padding-bottom: 100px
     
-    @media screen and (max-width: $break-extra-small)
+    @media screen and (max-width: $break-small)
       +flex-wrap(wrap)
     
 .footer-navigation-item
@@ -266,15 +269,26 @@ input, textarea
   
   @media screen and (max-width: $break-small)
     padding-bottom: 4px
+    width: 50%
   
 .footer-links
-  margin-right: 100px
+  padding-right: 100px
+  
+  @media screen and (max-width: $break-small)
+    padding-right: 50px
+  
+  li
+    display: block
+    
+    > a
+      display: block
+      padding: 2px 0
 
 .footer-credit
   margin-left: auto
   
   @media screen and (max-width: $break-small)
-    margin: 50px auto 0
+    margin-top: 50px
     text-align: left
     width: 100%
 

@@ -1,6 +1,6 @@
 {
   "name": "Snacks",
-  "version": "0.0.70",
+  "version": "0.0.71",
   "images": [
     {
       "variable": "logo",
@@ -73,7 +73,7 @@
       "label": "Featured products",
       "type": "select",
       "options": "0..100",
-      "default": 0,
+      "default": 12,
       "description": "The number of products shown on the Home page"
     },
     {

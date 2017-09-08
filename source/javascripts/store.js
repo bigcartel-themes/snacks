@@ -19,7 +19,7 @@ API.onError = function(errors) {
       $productForm.prepend($errorList);
       $errorList.addClass('product-errors');
       $('.add-to-cart-button').removeClass('spinner');
-      $('.status-icon').fadeIn('fast');
+      $('.add-icon').fadeIn('fast');
       $('.add-to-cart-button').removeClass('adding');
     }, 600)
   }
@@ -42,12 +42,11 @@ $(function() {
     e.preventDefault();
     var quantity = $(".product-quantity").val()
     , itemID = $("#option").val()
-    , addButton = $('.add-to-cart-button')
-    , addText = $('.status-icon');
+    , addButton = $('.add-to-cart-button');
     if (!addButton.hasClass('adding')) { 
       if (quantity > 0 && itemID > 0) { 
         addButton.addClass('adding');
-        addText.fadeOut('fast', function() { 
+        $('.add-icon').fadeOut('fast', function() { 
           addButton.addClass('spinner');
         });
         Cart.addItem(itemID, quantity, function(cart) {
@@ -58,11 +57,12 @@ $(function() {
             $('.item-count').html(item_html);
             if (!$('.footer-overlay').hasClass('visible')) { 
               $('.footer-overlay').addClass('visible');
+              $('.body').addClass('cart-footer');
             }
             $('.success-icon').fadeIn(700, function() { 
               setTimeout(function() {
                 $('.success-icon').fadeOut('fast', function() { 
-                  $('.status-icon').fadeIn('fast');
+                  $('.add-icon').fadeIn('fast');
                   addButton.blur();
                   addButton.removeClass('adding');
                 });
@@ -184,6 +184,7 @@ var toggleCart = function(state, item_count) {
     $('html').removeClass('overlay-open');
     if (item_count == 0) {
       $('.footer-overlay').removeClass('visible');
+      $('body').removeClass('cart-footer');
     }
   }
   if (state == 'show') { 

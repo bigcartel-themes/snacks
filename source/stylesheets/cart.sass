@@ -69,11 +69,14 @@
   
 .cart-totals
   margin-left: 100px
-  width: 400px
+  max-width: 400px
+  width: 100%
+  
+  @media screen and (max-width: $break-medium)
+    max-width: 100%
   
   @media screen and (max-width: $break-small)
     margin-left: 0
-    width: 100%
   
   h3
     font-size: 25px

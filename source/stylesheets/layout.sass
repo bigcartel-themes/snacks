@@ -267,6 +267,14 @@ input, textarea
   margin: 0
   padding: 0
   
+  li
+    display: block
+    
+    > a
+      display: block
+      line-height: 22px
+      padding: 5px 0
+  
   @media screen and (max-width: $break-small)
     padding-bottom: 4px
     width: 50%
@@ -276,13 +284,6 @@ input, textarea
   
   @media screen and (max-width: $break-small)
     padding-right: 50px
-  
-  li
-    display: block
-    
-    > a
-      display: block
-      padding: 2px 0
 
 .footer-credit
   margin-left: auto

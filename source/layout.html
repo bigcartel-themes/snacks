@@ -16,14 +16,11 @@
         {% else %}
           <a class="store-link" href="/" title="{{ store.name | escape }}">{{ store.name }}</a>
         {% endif %}
-        
         <a class="open-overlay" href="/products">Shop</a>
       </div>
     </header>
-    
     <div class="content">
       <div class="wrapper">
-        
         {% if page.category == 'custom' or page.permalink == 'success' %}
           <div class="split-page custom-page">
             <div class="page-header">
@@ -39,7 +36,6 @@
         {% endif %}
       </div>
     </div>
-    
     <footer class="footer">
       <div class="wrapper">
         <div class="footer-divider"></div>
@@ -82,25 +78,23 @@
       </div>
     </footer>
     <a class="footer-overlay {% if page.permalink != 'cart' %}{% if cart.item_count > 0 %}visible{% endif %}{% endif %}" href="/cart">
-      <div class="wrapper header-items hidden-items">
-        <span class="cart-item-title">Keep shopping</span>
-        <svg class="close-icon footer-icon" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg>
-      </div>
       <div class="wrapper footer-items">
         <span class="cart-item-title"><span class="item-count">{{ cart.item_count | pluralize: 'Item', 'Items' }}</span> in your cart</span>
         <svg class="footer-icon cart-icon" viewBox="0 0 29 29">><path d="M26.7 6.5c-.2-.3-.6-.5-1-.5H7l-.4-1.1C6.5 4.4 6 4 5.4 4H2v1h3.4c.1 0 .2.1.2.2l4.1 13.9c.2.5.7.9 1.3.9h13v-1H11c-.1 0-.2-.1-.2-.2l-.6-1.8h13.5c.6 0 1.1-.4 1.2-1l2-8.4c.1-.4.1-.8-.2-1.1zM24 15.8c0 .1-.1.2-.2.2H10h-.1L7.2 7h18.5c.1 0 .2.1.2.1.1.1.1.2.1.2l-2 8.5zM12 21c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 3c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1zm10-3c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 3c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1z"/></svg>
       </div>
     </a>
-    <div class="cart-overlay">
-      <a class="keep-shopping close-cart-overlay visible{% if page.permalink == 'cart' %} open{% endif %}" href="/products">
-        <div class="wrapper header-items">
-          <span class="cart-item-title">Keep shopping</span>
-          <svg class="close-icon footer-icon" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg>
+    {% if page.permalink != 'cart' %}
+      <div class="cart-overlay">
+        <a class="keep-shopping close-cart-overlay visible{% if page.permalink == 'cart' %} open{% endif %}" href="/products">
+          <div class="wrapper header-items">
+            <span class="cart-item-title">Keep shopping</span>
+            <svg class="close-icon footer-icon" viewBox="0 0 29 29"><path d="M23.6 24.4l-9.1-9.2-9.1 9.2-.8-.8 9.2-9.1-9.2-9.1.8-.8 9.1 9.2 9.1-9.2.8.8-9.2 9.1 9.2 9.1z"/></svg>
+          </div>
+        </a>
+        <div class="wrapper">
         </div>
-      </a>
-      <div class="wrapper">
       </div>
-    </div>
+    {% endif %}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{ 'api' | theme_js_url }}"></script>
     <script src="{{ theme | theme_js_url }}"></script>

@@ -23,6 +23,9 @@
     .product-list-image
       margin-bottom: 50px
       
+  @media screen and (max-width: $break-large) and (orientation: portrait)
+    max-width: 500px
+      
   @media screen and (max-width: $break-large) and (orientation: landscape)
     max-width: 400px
   
@@ -117,6 +120,9 @@
   max-width: 500px
   width: 100%
   
+  @media screen and (max-width: $break-large) and (orientation: portrait)
+    margin-left: 50px
+  
   @media screen and (max-width: $break-medium)
     margin-left: 0
     margin-top: -50px
@@ -137,6 +143,9 @@
   position: relative
   text-transform: uppercase
   width: 100%
+  
+  @media screen and (max-width: $break-large) and (orientation: portrait)
+    left: -100px
   
   @media screen and (max-width: $break-medium)
     left: auto

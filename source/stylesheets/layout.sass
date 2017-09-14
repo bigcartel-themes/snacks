@@ -234,7 +234,7 @@ input, textarea
   max-width: 500px
   width: 100%
   
-  @media screen and (max-width: $break-extra-small)
+  @media screen and (max-width: $break-medium)
     margin: 50px 0 25px
 
 .content
@@ -283,6 +283,7 @@ input, textarea
   padding-right: 100px
   
   @media screen and (max-width: $break-small)
+    +flex-grow(1)
     padding-right: 50px
 
 .footer-credit
@@ -369,8 +370,7 @@ a.continue-shopping-button
   padding: 0
   
   &.contact-errors
-    @media screen and (max-width: $break-small)
-      margin: 25px 0 0 
+    margin: 25px 0 0 
   
 .footer-overlay
   +transition(all .3s)
@@ -465,15 +465,15 @@ a.continue-shopping-button
   
   @media screen and (max-width: $break-small)
     &.open
-      position: fixed
-      z-index: 10
-      top: 0
+      height: 100vh
       left: 0
       line-height: 50px
       margin: 0
-      width: 100vw
-      height: 100vw
       max-width: 100vw
+      position: fixed
+      width: 100vw
+      z-index: 10
+      top: 0
       
       @media screen and (max-width: $break-small)
         .navigation-title
@@ -486,7 +486,7 @@ a.continue-shopping-button
           width: 100vw
       
       .shop-dropdown
-        height: 100vh
+        height: auto
         max-height: 100vh
         overflow-y: scroll
         padding: 25px 50px

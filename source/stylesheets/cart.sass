@@ -21,6 +21,9 @@
     
     @media screen and (max-width: $break-medium)
       padding-top: 50px
+      
+    @media screen and (max-width: $break-small)
+      padding-top: 25px
   
   &.open
     top: 0
@@ -61,8 +64,8 @@
   +flexbox
   margin-top: 150px
   
-  @media screen and (max-width: $break-medium)
-    margin-top: 100px
+  @media screen and (max-width: $break-small)
+    margin-top: 125px
   
 .cart-form
   width: 100%
@@ -73,6 +76,7 @@
   width: 100%
   
   @media screen and (max-width: $break-medium)
+    margin-left: 50px
     max-width: 100%
   
   @media screen and (max-width: $break-small)
@@ -93,7 +97,7 @@
   
   @media screen and (max-width: $break-medium)
     .page-accent
-      margin-top: 50px
+      margin-top: 0
       max-width: 100%
       
     .checkout-btn
@@ -101,6 +105,13 @@
   
   @media screen and (max-width: $break-small)
     order: 2
+    padding-bottom: 50px
+    
+    .page-accent
+      margin-top: 50px
+      
+    .checkout-btn
+      display: block
   
 .cart-header
   display: none
@@ -168,6 +179,9 @@ input.option-quantity
 .item-bottom-half
   display: none
   padding-top: 25px
+  
+  .item-link
+    display: block
   
   @media screen and (max-width: $break-medium)
     +pie-clearfix
@@ -280,6 +294,9 @@ input.option-quantity
 .checkout-btn
   margin-top: 50px
   
+  @media screen and (max-width: $break-small)
+    display: none
+  
 #cart
   header
     display: none
@@ -287,7 +304,6 @@ input.option-quantity
   footer
     display: none
   
-
 .cart-split-page
   +flexbox
   +justify-content(flex-start)
@@ -296,4 +312,34 @@ input.option-quantity
   
   @media screen and (max-width: $break-small)
     +flex-direction(column)
+    
+.empty-cart-message
+  +flexbox
+  +flex-direction(column)
+  font-size: 25px
+  letter-spacing: 5px
+  line-height: 40px
+  margin-top: 175px
+  
+  @media screen and (max-width: $break-medium)
+    margin-top: 125px
+  
+  .empty-cart-text
+    margin-bottom: 50px
+  
+  .empty-cart-face
+    display: block
+    fill: $text-color
+    height: 50px
+    width: 50px
+    
+.mobile-errors
+  display: none
+  
+  @media screen and (max-width: $break-medium)
+    display: block
+    
+.desktop-errors
+  @media screen and (max-width: $break-medium)
+    display: none
   

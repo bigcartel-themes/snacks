@@ -1,6 +1,6 @@
 <div class="dropdown-navigation category-navigation">
   <div class="navigation-header">
-    <h2 class="navigation-title" data-menu-title="Shop By">{% if page.full_url contains "/products" %}All Products{% else %}{{ page.name }}{% endif %}</h2>
+    <h2 class="navigation-title" data-menu-title="Shop By">{% if page.full_path contains "/products" %}All Products{% else %}{{ page.name }}{% endif %}</h2>
     {% if categories.active != blank or artists.active != blank %}
       <div class="nav-icon">
         <span></span>
@@ -13,15 +13,15 @@
   {% if categories.active != blank or artists.active != blank %}
     <div class="shop-dropdown">
       <ul class="dropdown-links">
-        <li class="dropdown-link{% if page.full_url contains "/products" %} current-dropdown-link{% endif %}"><a href="/products" title="Products">All Products</a></li>
+        <li class="dropdown-link{% if page.full_path contains "/products" %} current-dropdown-link{% endif %}"><a href="/products" title="Products">All Products</a></li>
         {% if categories.active != blank %}
           {% for category in categories.active %}
-            <li class="dropdown-link{% if page.full_url contains category.permalink %} current-dropdown-link{% endif %}">{{ category | link_to }}</li>
+            <li class="dropdown-link{% if page.full_path contains category.permalink %} current-dropdown-link{% endif %}">{{ category | link_to }}</li>
           {% endfor %}
         {% endif %}
         {% if artists.active != blank %}
           {% for artist in artists.active %}
-            <li class="dropdown-link{% if page.full_url contains artist.permalink %} current-dropdown-link{% endif %}">{{ artist | link_to }}</li>
+            <li class="dropdown-link{% if page.full_path contains artist.permalink %} current-dropdown-link{% endif %}">{{ artist | link_to }}</li>
           {% endfor %}
         {% endif %}
       </ul>

@@ -1,6 +1,6 @@
 {
   "name": "Snacks",
-  "version": "0.0.72",
+  "version": "1.0.0",
   "images": [
     {
       "variable": "logo",
@@ -10,8 +10,7 @@
     {
       "variable": "welcome_image",
       "label": "Welcome image",
-      "description": "1200px by 750px images recommended",
-      "default": "welcome-image.png"
+      "description": "1200px by 750px images recommended"
     }
   ],
   "fonts": [
@@ -58,15 +57,13 @@
       "variable": "welcome_header",
       "label": "Welcome header",
       "type": "text",
-      "description": "Welcome header for homepage",
-      "default": "Welcome to Snacks"
+      "description": "Welcome header for homepage"
     },
     {
       "variable": "welcome_subheader",
       "label": "Welcome subheader",
       "type": "text",
-      "description": "Welcome subheader for homepage",
-      "default": "A little theme with a lot of personality."
+      "description": "Welcome subheader for homepage"
     },
     {
       "variable": "featured_products",
@@ -75,6 +72,22 @@
       "options": "0..100",
       "default": 12,
       "description": "The number of products shown on the Home page"
+    },
+    {
+      "variable": "featured_order",
+      "label": "Featured products order",
+      "type": "select",
+      "options": "product_orders",
+      "default": "position",
+      "description": "The order of products on the Home page"
+    },
+    {
+      "variable": "products_per_page",
+      "label": "Products per page",
+      "type": "select",
+      "options": "1..100",
+      "default": 20,
+      "description": "The number of products displayed per page"
     },
     {
       "variable": "twitter_url",

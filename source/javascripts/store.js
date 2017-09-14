@@ -1,5 +1,3 @@
-// Error handling for adding/updating cart
-
 var inPreview = (/\/admin\/design/.test(top.location.pathname));
 
 API.onError = function(errors) {
@@ -11,7 +9,14 @@ API.onError = function(errors) {
     $errorList.append($('<li>').html(error));
   });
   if ($('.cart-overlay').hasClass('open') || $("body#cart").length) {
-    $errorList.insertBefore('.cart-items');
+    if ($(window).width() <= 767) {
+      $errorList.addClass('mobile-errors'); 
+      $errorList.insertBefore('.cart-totals');
+    }
+    else {
+      $errorList.addClass('desktop-errors'); 
+      $errorList.insertBefore('.cart-items');
+    }
     $errorList.addClass('cart-errors');
     $("html, body").animate({ scrollTop: 0 }, "fast");
   } else if ($productForm.length) {
@@ -26,7 +31,6 @@ API.onError = function(errors) {
 }
 
 $(function() {
-  // Open the Shop dropdown from Categories
   $('.navigation-header').click(function(e) {
     var menu_title = $('.navigation-title').data('menu-title');
     var current_title = $('.navigation-title').html();
@@ -37,7 +41,6 @@ $(function() {
     return false;
   });
 
-  // Adding item to cart
   $('.product-form').submit(function(e) {
     e.preventDefault();
     var quantity = $(".product-quantity").val()
@@ -57,7 +60,7 @@ $(function() {
             $('.item-count').html(item_html);
             if (!$('.footer-overlay').hasClass('visible')) { 
               $('.footer-overlay').addClass('visible');
-              $('.body').addClass('cart-footer');
+              $('body').addClass('cart-footer');
             }
             $('.success-icon').fadeIn(700, function() { 
               setTimeout(function() {
@@ -76,14 +79,11 @@ $(function() {
     }
   });
   
-  // Straight submit when it's a single option
   $('.single-option').click(function(e) { 
     $('.product-form').submit();
   })
   
-  // Infinite scroll
   var $container = $('.products-page-products').infiniteScroll({
-    // options
     path: '.next-button',
     append: '.product-card',
     status: '.page-load-status',
@@ -95,7 +95,6 @@ $(function() {
     loadOnScroll: false
   });
   
-  // Load more products button
   var $loadMoreButton = $('.view-more-button');
   $loadMoreButton.on( 'click', function() {
     $container.infiniteScroll('loadNextPage');
@@ -104,13 +103,11 @@ $(function() {
     });
     $loadMoreButton.hide();
   });
-  
-  // Set product option title on load
+
   if ($('#option').length) { 
     $('.navigation-title').html($("#option option:selected").text());
   }
-  
-  // Select a product option
+
   $('.product-option-links li').not('.disabled').click(function() { 
     var option_id = $(this).data("option-id");
     if (option_id > 0) { 
@@ -122,28 +119,7 @@ $(function() {
       $('.shop-dropdown').slideToggle('fast');
     }
   });
-  
-  // Flexslider
-  /*
-  if ($(window).width() <= 1023) {
-    if ($('.slides').length) {
-      $('.product-page-images').addClass('use-slideshow');
-      $('.product-images-list').parent().addClass('flexslider');
-      $('.product-page-accent').addClass('has-controls');
-      $('.flexslider').flexslider({
-        animation: "slide",
-        slideshow: false,
-        smoothHeight: true,
-        controlsContainer: $(".custom-controls-container"),
-        customDirectionNav: $(".custom-navigation a"),
-      });
-    }
-  }
-  $('.flexslider').on('touchmove', function (e) { e.stopPropagation(); });
-  */
-  
 
-  //Open the cart overlay
   $('.footer-overlay').click(function(e) { 
     if (!inPreview) { 
       e.preventDefault();
@@ -159,15 +135,14 @@ $(function() {
     e.preventDefault();
     toggleCart('hide');
   })
-  
-  // Product image lightbox
-    $('.product-images-list a').magnificPopup({
-      type:'image',
-      tLoading: '',
-      gallery: {
-        enabled: true
-      }
-    });
+
+  $('.product-images-list a').magnificPopup({
+    type:'image',
+    tLoading: '',
+    gallery: {
+      enabled: true
+    }
+  });
 });
 
 var processUpdate = function(input, item_id, new_val, cart) {
@@ -202,7 +177,16 @@ var updateTotals = function(cart) {
   var item_count = cart.item_count;
   $('.cart-errors').remove();
   if (item_count == 0) {
-    toggleCart('hide', item_count);
+    var currentURL = window.location.href;
+    var lastPart = currentURL.substr(currentURL.lastIndexOf('/') + 1);
+    if (lastPart != 'cart') {
+      toggleCart('hide', item_count);
+    }
+    else { 
+      $('.cart-page').slideUp('fast', function() { 
+        $('.empty-cart-message').slideDown('fast');
+      });
+    }
   }
   else { 
     $('.cart-total-amount').html(sub_total);
@@ -223,6 +207,7 @@ var updateTotals = function(cart) {
       $('.apply-discount').addClass('cancel-discount').removeClass('apply-discount');
       $('.cart-discount-code').val(cart.discount.name);
       $('.cart-discount-code').prop("disabled", true);
+      $('.cart-discount-code').blur();
       if (cart.discount.type == 'free_shipping') { 
         var discount_amount = '';
       }
@@ -251,7 +236,6 @@ $(window).on("load resize",function() {
     }
   }
   else { 
-    
     if ($('.slides').length) {
       $('.product-page-accent').addClass('has-controls'); 
       if ($('.slides').hasClass('slick-initialized')) { 
@@ -271,7 +255,6 @@ $(window).on("load resize",function() {
   }
 });
 
-
 $('body')
   .on( 'blur','.option-quantity', function(e) {
     e.preventDefault();
@@ -285,7 +268,20 @@ $('body')
       });
     }
   })
-  
+  .on('keypress','.option-quantity', function(e) {
+    if (e.keyCode == 13) {
+      var input = $(this);
+      var item_id = input.parent().data("item-id");
+      var new_val = input.val();
+      
+      if (!isNaN(new_val)) { 
+        Cart.updateItem(item_id, new_val, function(cart) {
+          processUpdate(input, item_id, new_val, cart);
+        });
+      }
+      return false;
+    }
+  })
   .on('click','.item-delete', function(e) {
     e.preventDefault();
     var input = $(this).closest('li').find('input.option-quantity');
@@ -295,7 +291,6 @@ $('body')
       processUpdate(input, item_id, 0, cart);
     });
   })
-
   .on('click','.apply-discount', function(e) {
     e.preventDefault();
     $('.checkout-btn').attr('name','update');
@@ -315,7 +310,7 @@ $('body')
       updateTotals(cart);
     });
   })
-  .on('keyup','[name="cart[discount_code]"]', function(e) {
+  .on('keyup keypress','.cart-discount-code', function(e) {
     if (e.keyCode == 13) {
       e.preventDefault(); 
       $(this).closest('.checkout-btn').attr('name','update');

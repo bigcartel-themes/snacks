@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{ store.name }} | {{ page.name }}</title>
+    <title>{{ page.name }} | {{ store.name }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
     <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
-    <link href="//fonts.googleapis.com/css?family=Muli" rel="stylesheet" title="Google Fonts" type="text/css" />
     {{ head_content }}
   </head>
   <body id="{{ page.permalink }}" class="{{ page.category }} {% if page.permalink != 'cart' %}{% if cart.item_count > 0 %}cart-footer{% endif %}{% endif %}">

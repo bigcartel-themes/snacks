@@ -221,12 +221,6 @@ input.option-quantity
 .cart-total-amount
   color: $secondary-text-color
 
-.cart-discounts-shipping
-  margin-top: 40px
-  
-.cart-shipping + .cart-discounts
-  margin-top: 25px
-
 .cart-amount 
   font-size: 13px
   margin-bottom: 15px
@@ -235,62 +229,6 @@ input.option-quantity
   span
     color: $secondary-text-color
   
-.country-select
-  background: $background-color
-  border: 2px solid $accent-background-color
-  height: 50px
-  
-  select
-    color: $text-color
-    
-  svg
-    fill: $secondary-text-color
-    position: relative
-    right: 20px
-    
-  &:hover
-    color: $accent-background-color
-    border-color: $accent-background-color
-
-    select
-      color: $accent-background-color
-      
-    svg
-      fill: $secondary-text-color
-    
-.cart-discount-status
-  +pie-clearfix
-  background: $background-color
-  border: 2px solid $accent-background-color
-  height: 50px
-  
-  .cart-discount-code
-    +appearance(none)
-    border: none
-    font-size: 11px
-    height: 46px
-    line-height: 46px
-    outline: none
-    padding: 0 30px
-    width: calc(100% - 46px)
-    
-  .apply-discount, .cancel-discount
-    background: $accent-background-color
-    float: right
-    font-size: 11px
-    height: 46px
-    text-align: center
-    width: 46px
-    
-    svg
-      +vertical-align
-      fill: $accent-text-color
-      height: 25px
-      width: 25px
-      
-  .cancel-discount svg
-    +transform(translateY(-50%) rotate(45deg))
-
 .checkout-btn
   margin-top: 50px
   

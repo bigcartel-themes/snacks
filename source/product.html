@@ -31,7 +31,7 @@
   <div class="product-page-details">   
     <div class="product-page-info">
       <div class="product-name">{{ product.name }}</div>
-      <div class="product-price">{{ product.default_price | money_with_sign }}</div>
+      <div class="product-price">{{ product.default_price | money: theme.money_format }}</div>
       {% if product_status != blank %}
         <div class="product-status">{{ product_status }}</div>
       {% endif %}
@@ -45,7 +45,7 @@
           {% assign num_options = product.options_in_stock | size %}
           {% if num_options == 1 %}
             {% for option in product.options_in_stock	 %}
-              <div class="single-option has-multiple">{{ option.name }}{% if option.price != product.default_price %} - {{ option.price | money_with_sign }}{% endif %}</div>
+              <div class="single-option has-multiple">{{ option.name }}{% if option.price != product.default_price %} - {{ option.price | money: theme.money_format }}{% endif %}</div>
               <input id="option" name="cart[add][id]" type="hidden" value="{{ option.id }}">
             {% endfor %}
           {% else %}
@@ -64,7 +64,7 @@
                 <ul class="product-option-links dropdown-links">
                   {% for option in product.options_in_stock	 %}
                     <li class="dropdown-link" data-option-id="{{ option.id }}" {% if option.sold_out %} class="disabled"{% endif %}>
-                      <span>{{ option.name }}{% if option.price != product.default_price %} - {{ option.price | money_with_sign }}{% endif %} {% if option.sold_out %}(Sold out){% endif %}</span>
+                      <span>{{ option.name }}{% if option.price != product.default_price %} - {{ option.price | money: theme.money_format }}{% endif %} {% if option.sold_out %}(Sold out){% endif %}</span>
                     </li>
                   {% endfor %}
                 </ul>

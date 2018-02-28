@@ -37,7 +37,7 @@
             <a class="product-link" href="{{ product.url }}">
               <div class="product-info">
                 <div class="product-name">{{ product.name }}</div>
-                <div class="product-price">{{ product.default_price | money_with_sign }}</div>
+                <div class="product-price">{{ product.default_price | money: theme.money_format }}</div>
                 {% if product_status != blank %}
                   <div class="product-status">{{ product_status }}</div>
                 {% endif %}

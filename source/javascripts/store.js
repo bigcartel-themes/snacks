@@ -193,37 +193,6 @@ var updateTotals = function(cart) {
     $('.checkout-btn').attr("name","checkout");
   }
 
-  if ($('.cart-shipping-amount').length) { 
-    if (cart.shipping.amount) {
-      var shipping_amount = Format.money(cart.shipping && cart.shipping.amount ? cart.shipping.amount : 0, true, true);
-    }
-    else {
-      var shipping_amount = Format.money(0, true, true);
-    }
-    $('.cart-shipping-amount > span').html(shipping_amount);
-  }
-  if ($('.cart-discount-amount').length) {
-    if (cart.discount) {
-      $('.apply-discount').addClass('cancel-discount').removeClass('apply-discount');
-      $('.cart-discount-code').val(cart.discount.name);
-      $('.cart-discount-code').prop("disabled", true);
-      $('.cart-discount-code').blur();
-      if (cart.discount.type == 'free_shipping') { 
-        var discount_amount = '';
-      }
-      else { 
-        var discount_amount = '- '+Format.money(cart.discount && cart.discount.amount ? cart.discount.amount : 0, true, true);
-      }
-    }
-    else {
-      $('.cancel-discount').addClass('apply-discount').removeClass('cancel-discount');
-      $('.cart-discount-code').val('');
-      $('.cart-discount-code').prop("disabled", false);
-      var discount_amount = Format.money(0, true, true);
-    }
-    $('.cart-discount-amount > span').html(discount_amount);
-  }
-
   $('.footer-items cart-item-title').html('<span class="item-count">'+Format.pluralize(cart.item_count, 'Item', 'Items')+'</span> in your cart');
 }
 $(window).on("load resize",function() {
@@ -290,45 +259,4 @@ $('body')
     Cart.updateFromForm("cart-form", function(cart) { 
       processUpdate(input, item_id, 0, cart);
     });
-  })
-  .on('click','.apply-discount', function(e) {
-    e.preventDefault();
-    $('.checkout-btn').attr('name','update');
-    Cart.updateFromForm("cart-form", function(cart) { 
-      updateTotals(cart);
-    });
-  })
-  .on( 'blur','.cart-discount-code', function(e) {
-    e.preventDefault();
-    $('.checkout-btn').attr('name','update');
-    Cart.updateFromForm("cart-form", function(cart) { 
-      updateTotals(cart);
-    });
-  })
-  .on('change','[name="cart[shipping_country_id]"]', function(e) {
-    Cart.updateFromForm("cart-form", function(cart) { 
-      updateTotals(cart);
-    });
-  })
-  .on('keyup keypress','.cart-discount-code', function(e) {
-    if (e.keyCode == 13) {
-      e.preventDefault(); 
-      $(this).closest('.checkout-btn').attr('name','update');
-      Cart.updateFromForm("cart-form", function(cart) { 
-        updateTotals(cart);
-      });
-      return false;
-    }
-  })
-  .on('click','.cancel-discount', function(e) {  
-    e.preventDefault(); 
-    $('.cart-form').append('<input class="empty-discount" name="cart[discount_code]" type="hidden" value="">');
-    Cart.updateFromForm("cart-form", function(cart) { 
-      updateTotals(cart);
-      $('.empty-discount').remove(0);
-    });
-  })
-  
-  .on('focus','.cart-discount-code', function(e) {
-    $(this).removeClass('has-errors');
   })

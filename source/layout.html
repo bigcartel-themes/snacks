@@ -3,7 +3,7 @@
   <head>
     <title>{{ page.name }} | {{ store.name }}</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
     {{ head_content }}
   </head>
@@ -54,19 +54,19 @@
               {% if theme.instagram_url != blank %}
                 <li><a target="_blank" title="Instagram" href="{{ theme.instagram_url }}">Instagram</a></li>
               {% endif %}
-              
+
               {% if theme.twitter_url != blank %}
                 <li><a target="_blank" title="Twitter" href="{{ theme.twitter_url }}">Twitter</a></li>
               {% endif %}
-              
+
               {% if theme.facebook_url != blank %}
                 <li><a target="_blank" title="Facebook" href="{{ theme.facebook_url }}">Facebook</a></li>
               {% endif %}
-      
+
               {% if theme.pinterest_url != blank %}
                 <li><a target="_blank" title="Pinterest" href="{{ theme.pinterest_url }}">Pinterest</a></li>
               {% endif %}
-              
+
               {% if theme.tumblr_url != blank %}
                 <li><a target="_blank" title="Tumblr" href="{{ theme.tumblr_url }}">Tumblr</a></li>
               {% endif %}
@@ -94,11 +94,11 @@
         </div>
       </div>
     {% endif %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="{{ 'api' | theme_js_url }}"></script>
     <script>
       var formatMoney = Format.money;
-      
+
       Format.money = function(number) {
         {% case theme.money_format %}
         {% when 'sign' %}
@@ -111,5 +111,11 @@
       };
     </script>
     <script src="{{ theme | theme_js_url }}"></script>
+    {% if page.full_url contains '/product/' %}
+      <script>
+        var show_sold_out_product_options = '{{ theme.show_sold_out_product_options }}';
+        Product.find('{{ product.permalink }}', processProduct)
+      </script>
+    {% endif %}
   </body>
 </html>

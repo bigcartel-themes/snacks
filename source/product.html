@@ -31,7 +31,13 @@
   <div class="product-page-details">
     <div class="product-page-info">
       <div class="product-name">{{ product.name }}</div>
-      <div class="product-price">{{ product.default_price | money: theme.money_format }}</div>
+      <div class="product-price">
+        {% if product.variable_pricing %}
+          {{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}
+        {% else %}
+          {{ product.default_price | money: theme.money_format }}
+        {% endif %}
+      </div>
       {% if product_status != blank %}
         <div class="product-status">{{ product_status }}</div>
       {% endif %}

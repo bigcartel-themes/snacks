@@ -97,7 +97,7 @@ button, a.button
   cursor: pointer
   display: block
   font-family: $primary-font
-  font-size: 11px
+  font-size: 12px
   height: 75px
   letter-spacing: 2px
   line-height: 75px
@@ -106,6 +106,10 @@ button, a.button
   text-align: center
   text-transform: uppercase
   width: 100%
+
+  &:disabled, &.disabled
+    cursor: not-allowed
+    opacity: .3
 
   &:focus, &:hover
     .underline
@@ -120,10 +124,45 @@ button, a.button
   cursor: pointer
   font-family: $primary-font
   height: 75px
+  margin-bottom: 1px
   max-width: 100%
   padding: 0
   position: relative
   width: 100%
+
+  .nav-icon
+    +transform(rotate(0deg))
+    +transition(.5s ease-in-out)
+    cursor: pointer
+    height: 29px !important
+    margin-left: auto
+    right: 50px
+    position: relative
+    width: 29px
+
+    @media screen and (max-width: $break-small)
+      right: 25px
+
+    span
+      +transform(rotate(0deg))
+      +transition(.25s ease-in-out)
+      background: $accent-text-color
+      border-radius: 1px
+      display: block
+      height: 1px
+      left: 0
+      opacity: 1
+      position: absolute
+      width: 100%
+
+      &:nth-child(1)
+        top: 7px
+
+      &:nth-child(2), &:nth-child(3)
+        top: 14px
+
+      &:nth-child(4)
+        top: 21px
 
   select
     +appearance(none)
@@ -132,19 +171,25 @@ button, a.button
     color: $accent-text-color
     cursor: pointer
     font-family: $primary-font
-    font-size: 11px
+    font-size: 12px
     height: 100%
     letter-spacing: 1px
     line-height: 2em
-    padding: 0 66px 0 30px
+    padding: 0 66px 0 50px
     position: relative
     text-transform: uppercase
     width: 100%
     z-index: 2
 
+    @media screen and (max-width: $break-small)
+      padding-left: 25px
+
     option
       background-color: #FFF
       color: #000
+
+      &:disabled
+        color: graytext
 
     &:focus
       box-shadow: none
@@ -167,6 +212,9 @@ button, a.button
 
     select
       color: $accent-text-color
+
+      option:disabled
+        color: graytext
 
     svg
       fill: $accent-text-color
@@ -516,6 +564,7 @@ a.continue-shopping-button
   .navigation-title
     color: $accent-text-color
     font-size: 11px
+    letter-spacing: 2px
     text-overflow: ellipsis
     white-space: nowrap
     overflow: hidden

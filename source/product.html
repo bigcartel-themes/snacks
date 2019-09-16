@@ -33,7 +33,7 @@
       <div class="product-name">{{ product.name }}</div>
       <div class="product-price">
         {% if product.variable_pricing %}
-          {{ product.min_price | money: theme.money_format }} - {{ product.max_price | money: theme.money_format }}
+          <span class="product-price-inner">{{ product.min_price | money: theme.money_format }}</span> - <span class="product-price-inner">{{ product.max_price | money: theme.money_format }}</span>
         {% else %}
           {{ product.default_price | money: theme.money_format }}
         {% endif %}

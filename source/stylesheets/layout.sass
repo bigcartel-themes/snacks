@@ -107,11 +107,22 @@ button, a.button
   text-transform: uppercase
   width: 100%
 
+  &.minimal-button
+    background: none
+    color: $text-color
+    border: none
+    font-size: 13px
+    padding: 0
+
+    &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
+      background: none
+      text-decoration: underline
+
   &:disabled, &.disabled
     cursor: not-allowed
     opacity: .3
 
-  &:focus, &:hover
+  &:not(:disabled):hover, &:not(:disabled):active, &:not(:disabled):focus
     .underline
       border-bottom: 1px solid $accent-text-color
 

@@ -49,7 +49,7 @@
     {
       "variable": "error_color",
       "label": "Errors",
-      "default": "#F83F53"
+      "default": "#a52a37"
     }
   ],
   "options": [

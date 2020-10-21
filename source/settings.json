@@ -1,6 +1,6 @@
 {
   "name": "Snacks",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "images": [
     {
       "variable": "logo",
@@ -49,7 +49,7 @@
     {
       "variable": "error_color",
       "label": "Errors",
-      "default": "#F83F53"
+      "default": "#a52a37"
     }
   ],
   "options": [

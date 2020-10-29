@@ -8,6 +8,7 @@
   left: 0
   overflow-y: scroll
   -webkit-overflow-scrolling: touch
+  opacity: 0
   padding-top: 100px
   padding-bottom: 100px
   position: fixed
@@ -15,6 +16,7 @@
   top: 100vh
   width: 100%
   z-index: 6
+  visibility: hidden
 
   > .wrapper
     +flexbox
@@ -27,7 +29,9 @@
       padding-top: 25px
 
   &.open
+    opacity: 1
     top: 0
+    visibility: visible
 
 .keep-shopping
   +transition(all .3s)

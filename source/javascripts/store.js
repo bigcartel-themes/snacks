@@ -89,30 +89,6 @@ $(function() {
     }
   });
 
-
-  if ($('.next-button').length) {
-    var $container = $('.products-page-products').infiniteScroll({
-      path: '.next-button',
-      append: '.product-card',
-      status: '.page-load-status',
-      hideNav: '.pagination',
-      checkLastPage: true,
-      history: false,
-      prefill: true,
-      debug: false,
-      loadOnScroll: false
-    });
-
-    var $loadMoreButton = $('.view-more-button');
-    $loadMoreButton.on( 'click', function() {
-      $container.infiniteScroll('loadNextPage');
-      $container.infiniteScroll( 'option', {
-        loadOnScroll: true,
-      });
-      $loadMoreButton.hide();
-    });
-  }
-
   $('.footer-overlay').click(function(e) {
     if (!inPreview) {
       e.preventDefault();

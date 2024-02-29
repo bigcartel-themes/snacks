@@ -9,7 +9,7 @@
 {% if theme.welcome_image or theme.welcome_header != blank or theme.welcome_subheader != blank %}
   <div class="home-welcome">
     {% if theme.welcome_image %}
-      <img class="welcome-image" src="{{ theme.images.welcome_image.url | constrain: 2000,1400 }}">
+      <img alt="" class="welcome-image" src="{{ theme.images.welcome_image.url | constrain: 2000,1400 }}">
     {% endif %}
     {% if theme.welcome_header != blank or theme.welcome_subheader != blank %}
       <div class="welcome-message">

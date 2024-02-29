@@ -1,6 +1,6 @@
 {
   "name": "Snacks",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "images": [
     {
       "variable": "logo",
@@ -16,7 +16,7 @@
   "preset_styles": {
     "preview": {
       "title_font": "primary_font",
-      "body_font": "secondary_font",
+      "body_font": "primary_font",
       "text_color": "text_color",
       "background_color": "background_color"
     },
@@ -47,9 +47,9 @@
               "background_color": "#141415",
               "text_color": "#F8F8F8",
               "secondary_text_color": "#C4C4C4",
-              "accent_background_color": "#333333",
-              "accent_text_color": "#0F1B27",
-              "error_color": "#A52A37"
+              "accent_background_color": "#464649",
+              "accent_text_color": "#F8F8F8",
+              "error_color": "#F4ABB2"
             }
           }
         ]

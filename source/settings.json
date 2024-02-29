@@ -13,6 +13,101 @@
       "description": "1200px by 750px images recommended"
     }
   ],
+  "preset_styles": {
+    "preview": {
+      "title_font": "primary_font",
+      "body_font": "secondary_font",
+      "text_color": "text_color",
+      "background_color": "background_color"
+    },
+    "presets": [
+      {
+        "group_name": "Classic",
+        "styles": [
+          {
+            "style_name": "Classic #1",
+            "fonts": {
+              "primary_font": "Muli"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "text_color": "#000000",
+              "secondary_text_color": "#666666",
+              "accent_background_color": "#000000",
+              "accent_text_color": "#FFFFFF",
+              "error_color": "#A52A37"
+            }
+          },
+          {
+            "style_name": "Classic #2",
+            "fonts": {
+              "primary_font": "Helvetica"
+            },
+            "colors": {
+              "background_color": "#141415",
+              "text_color": "#F8F8F8",
+              "secondary_text_color": "#C4C4C4",
+              "accent_background_color": "#333333",
+              "accent_text_color": "#0F1B27",
+              "error_color": "#A52A37"
+            }
+          }
+        ]
+      },
+      {
+        "group_name": "Natural",
+        "styles": [
+          {
+            "style_name": "Natural #1",
+            "fonts": {
+              "primary_font": "Inter"
+            },
+            "colors": {
+              "background_color": "#F8F8F8",
+              "text_color": "#0F1B27",
+              "secondary_text_color": "#8A5A5A",
+              "accent_background_color": "#EBE7E7",
+              "accent_text_color": "#0F1B27",
+              "error_color": "#A52A37"
+            }
+          }
+        ]
+      },
+      {
+        "group_name": "Playful",
+        "styles": [
+          {
+            "style_name": "Playful #1",
+            "fonts": {
+              "primary_font": "Helvetica"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "text_color": "#0000FF",
+              "secondary_text_color": "#0000FF",
+              "accent_background_color": "#FFEE54",
+              "accent_text_color": "#0000FF",
+              "error_color": "#D50010"
+            }
+          },
+          {
+            "style_name": "Playful #2",
+            "fonts": {
+              "primary_font": "Concert One"
+            },
+            "colors": {
+              "background_color": "#FFFFFF",
+              "text_color": "#000000",
+              "secondary_text_color": "#F90081",
+              "accent_background_color": "#9DFFFC",
+              "accent_text_color": "#000000",
+              "error_color": "#F90081"
+            }
+          }
+        ]
+      }
+    ]
+  },
   "fonts": [
     {
       "variable": "primary_font",

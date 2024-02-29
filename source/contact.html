@@ -43,11 +43,11 @@
             {{ contact | contact_input: 'message' }}
           </div>
         </div>
+        <div class="contact-form-block contact-send">
+          <button class="send-message-button button" type="submit" name="submit" title="Send message"><span class="underline">Send message</span></button>
+        </div>
         <div class="contact-form-block contact-recaptcha">
           <div class="recaptcha-note">{{ contact.recaptcha }}</div>
-        </div>
-        <div class="contact-form-block contact-send">
-          <button class="send-message-button button" type="submit" name="submit" title="Send message" tabindex="6"><span class="underline">Send message</span></button>
         </div>
       </form>
     {% endif %}

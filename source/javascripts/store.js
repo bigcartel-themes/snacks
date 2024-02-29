@@ -1,4 +1,9 @@
-var inPreview = (/http(s?):\/\/draft-+\w+\.bigcartel\.(test|biz|com)/.test(window.origin)||(/\/admin\/design/.test(top.location.pathname)));
+document.addEventListener("DOMContentLoaded", function () {
+  let contactFields = document.querySelectorAll(".contact-form input, .contact-form textarea");
+  contactFields.forEach(function (contactField) {
+    contactField.removeAttribute("tabindex");
+  });
+});
 
 API.onError = function(errors) {
   $('.errors').remove();
@@ -90,13 +95,11 @@ $(function() {
   });
 
   $('.footer-overlay').click(function(e) {
-    if (!inPreview) {
-      e.preventDefault();
-      var currentURL = window.location.href;
-      var lastPart = currentURL.substr(currentURL.lastIndexOf('/') + 1);
-      if (lastPart != 'cart') {
-        toggleCart('show');
-      }
+    e.preventDefault();
+    var currentURL = window.location.href;
+    var lastPart = currentURL.substr(currentURL.lastIndexOf('/') + 1);
+    if (lastPart != 'cart') {
+      toggleCart('show');
     }
   });
 

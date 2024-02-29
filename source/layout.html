@@ -49,28 +49,54 @@
             {% endif %}
             <li><a href="/contact" title="Contact">Contact</a></li>
           </ul>
-          {% if theme.twitter_url != blank or theme.facebook_url != blank or theme.instagram_url != blank or theme.tumblr_url != blank or theme.pinterest_url != blank %}
-            <ul class="footer-navigation-item footer-social-links">
-              {% if theme.instagram_url != blank %}
-                <li><a title="Instagram" href="{{ theme.instagram_url }}">Instagram</a></li>
-              {% endif %}
+          {% if theme.instagram_url != blank
+            or theme.tiktok_url != blank
+            or theme.twitter_url != blank
+            or theme.snapchat_url != blank
+            or theme.facebook_url != blank
+            or theme.pinterest_url != blank
+            or theme.youtube_url != blank
+            or theme.tumblr_url != blank
+            or theme.bandcamp_url != blank %}
+            <nav aria-label="Social links">
+              <ul class="footer-navigation-item footer-social-links">
+                {% if theme.instagram_url != blank %}
+                  <li><a href="{{ theme.instagram_url }}">Instagram</a></li>
+                {% endif %}
 
-              {% if theme.twitter_url != blank %}
-                <li><a title="Twitter" href="{{ theme.twitter_url }}">Twitter</a></li>
-              {% endif %}
+                {% if theme.tiktok_url != blank %}
+                  <li><a href="{{ theme.tiktok_url }}">TikTok</a></li>
+                {% endif %}
 
-              {% if theme.facebook_url != blank %}
-                <li><a title="Facebook" href="{{ theme.facebook_url }}">Facebook</a></li>
-              {% endif %}
+                {% if theme.twitter_url != blank %}
+                  <li><a href="{{ theme.twitter_url }}">Twitter</a></li>
+                {% endif %}
 
-              {% if theme.pinterest_url != blank %}
-                <li><a title="Pinterest" href="{{ theme.pinterest_url }}">Pinterest</a></li>
-              {% endif %}
+                {% if theme.snapchat_url != blank %}
+                  <li><a href="{{ theme.snapchat_url }}">Snapchat</a></li>
+                {% endif %}
 
-              {% if theme.tumblr_url != blank %}
-                <li><a title="Tumblr" href="{{ theme.tumblr_url }}">Tumblr</a></li>
-              {% endif %}
-            </ul>
+                {% if theme.facebook_url != blank %}
+                  <li><a href="{{ theme.facebook_url }}">Facebook</a></li>
+                {% endif %}
+
+                {% if theme.pinterest_url != blank %}
+                  <li><a href="{{ theme.pinterest_url }}">Pinterest</a></li>
+                {% endif %}
+
+                {% if theme.youtube_url != blank %}
+                  <li><a href="{{ theme.youtube_url }}">YouTube</a></li>
+                {% endif %}
+
+                {% if theme.tumblr_url != blank %}
+                  <li><a href="{{ theme.tumblr_url }}">Tumblr</a></li>
+                {% endif %}
+
+                {% if theme.bandcamp_url != blank %}
+                  <li><a href="{{ theme.bandcamp_url }}">Bandcamp</a></li>
+                {% endif %}
+              </ul>
+            </nav>
           {% endif %}
           <div class="footer-credit">{{ powered_by_big_cartel }}</div>
         </div>
@@ -94,7 +120,7 @@
         </div>
       </div>
     {% endif %}
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="{{ 'api' | theme_js_url }}"></script>
     <script>
       var formatMoney = Format.money;

@@ -109,34 +109,58 @@
       "description": "Sets the display of prices in your shop"
     },
     {
+      "variable": "instagram_url",
+      "label": "Instagram URL",
+      "type": "text",
+      "description": "Ex: https://instagram.com/bigcartel"
+    },
+    {
+      "variable": "tiktok_url",
+      "label": "TikTok URL",
+      "type": "text",
+      "description": "Ex: https://tiktok.com/@bigcartelofficial"
+    },
+    {
       "variable": "twitter_url",
       "label": "Twitter URL",
       "type": "text",
-      "description": "Ex: http://twitter.com/bigcartel"
+      "description": "Ex: https://twitter.com/bigcartel"
     },
     {
       "variable": "facebook_url",
       "label": "Facebook URL",
       "type": "text",
-      "description": "Ex: http://facebook.com/bigcartel"
+      "description": "Ex: https://facebook.com/bigcartel"
     },
     {
-      "variable": "tumblr_url",
-      "label": "Tumblr URL",
+      "variable": "snapchat_url",
+      "label": "Snapchat URL",
       "type": "text",
-      "description": "Ex: http://bigcartel.tumblr.com"
-    },
-    {
-      "variable": "instagram_url",
-      "label": "Instagram URL",
-      "type": "text",
-      "description": "Ex: http://instagram.com/bigcartel"
+      "description": "Ex: https://snapchat.com/add/bigcartel"
     },
     {
       "variable": "pinterest_url",
       "label": "Pinterest URL",
       "type": "text",
-      "description": "Ex: http://pinterest.com/bigcartel"
+      "description": "Ex: https://pinterest.com/big_cartel"
+    },
+    {
+      "variable": "youtube_url",
+      "label": "YouTube URL",
+      "type": "text",
+      "description": "Ex: https://youtube.com/@BigCartelDotCom"
+    },
+    {
+      "variable": "tumblr_url",
+      "label": "Tumblr URL",
+      "type": "text",
+      "description": "Ex: https://bigcartel.tumblr.com"
+    },
+    {
+      "variable": "bandcamp_url",
+      "label": "Bandcamp URL",
+      "type": "text",
+      "description": "Ex: https://bigcartel.bandcamp.com"
     }
   ],
   "checkout": {
@@ -160,7 +184,6 @@
     "step_inactive_header_color": " {{ text_color }}",
     "step_header_font": "{{ primary_font }}",
     "step_background_color": "{{ background_color }}",
-    "background_color": "{{ background_color }}",
     "content_background_color": "{{ background_color }}",
     "content_header_background_color": "{{ background_color }}",
     "content_header_color": "{{ text_color }}",
@@ -184,7 +207,6 @@
     "input_border_radius": "0px",
     "input_border_width": "2px",
     "input_font": "{{ primary_font }}",
-    "accent_background_color": "{{ accent_text_color }}",
     "button_border_width": "0px",
     "button_border_radius": "0px",
     "button_font": "{{ primary_font }}",
@@ -196,7 +218,6 @@
     "button_text_transform": "none",
     "link_color": "{{ link_color }}",
     "link_hover_color": "{{ text_color }}",
-    "step_header_color": "{{ text_color }}",
     "step_header_font_size": "18px",
     "summary_color": "{{ text_color }}",
     "summary_secondary_color": "{{ text_color }}",

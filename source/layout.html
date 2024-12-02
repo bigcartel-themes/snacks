@@ -7,8 +7,8 @@
     <link href="{{ theme | theme_css_url }}" media="screen" rel="stylesheet" type="text/css">
     {{ head_content }}
   </head>
-  <body id="{{ page.permalink }}" class="{{ page.category }} {% if page.permalink != 'cart' %}{% if cart.item_count > 0 %}cart-footer{% endif %}{% endif %}">
-    <header class="header">
+  <body id="{{ page.permalink }}" class="{{ page.category }} {% if page.permalink != 'cart' %}{% if cart.item_count > 0 %}cart-footer{% endif %}{% endif %}" data-bc-page-type="{% if page.category == 'custom' %}custom{% else %}{{ page.permalink }}{% endif %}">
+    <header class="header" data-bc-hook="header">
       <div class="wrapper">
         {% if theme.logo != blank %}
           <a class="store-link" href="/" title="{{ store.name | escape }}"><img alt="{{ store.name | escape }}" src="{{ theme.images.logo.url | constrain: 600, 200 }}"></a>
@@ -35,7 +35,7 @@
         {% endif %}
       </div>
     </div>
-    <footer class="footer">
+    <footer class="footer" data-bc-hook="footer">
       <div class="wrapper">
         <div class="footer-divider"></div>
         <div class="footer-navigation">

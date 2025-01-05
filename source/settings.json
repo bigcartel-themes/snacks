@@ -1,6 +1,6 @@
 {
   "name": "Snacks",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "images": [
     {
       "variable": "logo",
@@ -51,6 +51,20 @@
               "accent_text_color": "#F8F8F8",
               "error_color": "#F4ABB2"
             }
+          },
+          {
+            "style_name": "Classic #3",
+            "fonts": {
+              "primary_font": "Georgia"
+            },
+            "colors": {
+              "background_color": "#F5F5F5",
+              "text_color": "#2E2E2E",
+              "secondary_text_color": "#7A7A7A",
+              "accent_background_color": "#2E2E2E",
+              "accent_text_color": "#F5F5F5",
+              "error_color": "#A52A37"
+            }
           }
         ]
       },
@@ -69,6 +83,34 @@
               "accent_background_color": "#EBE7E7",
               "accent_text_color": "#0F1B27",
               "error_color": "#A52A37"
+            }
+          },
+          {
+            "style_name": "Natural #2",
+            "fonts": {
+              "primary_font": "Lora"
+            },
+            "colors": {
+              "background_color": "#EDEDEE",
+              "text_color": "#1B2631",
+              "secondary_text_color": "#A85A50",
+              "accent_background_color": "#CFCFD1",
+              "accent_text_color": "#1B2631",
+              "error_color": "#992C2C"
+            }
+          },
+          {
+            "style_name": "Natural #3",
+            "fonts": {
+              "primary_font": "Abril Fatface"
+            },
+            "colors": {
+              "background_color": "#FAFAF5",
+              "text_color": "#2D3538",
+              "secondary_text_color": "#925A50",
+              "accent_background_color": "#E0E0DC",
+              "accent_text_color": "#2D3538",
+              "error_color": "#9B2A2F"
             }
           }
         ]
@@ -102,6 +144,20 @@
               "accent_background_color": "#9DFFFC",
               "accent_text_color": "#000000",
               "error_color": "#F90081"
+            }
+          },
+          {
+            "style_name": "Playful #3",
+            "fonts": {
+              "primary_font": "Chewy"
+            },
+            "colors": {
+              "background_color": "#FDF1F0",
+              "text_color": "#FF007F",
+              "secondary_text_color": "#FF69B4",
+              "accent_background_color": "#FFF89A",
+              "accent_text_color": "#FF007F",
+              "error_color": "#E3003B"
             }
           }
         ]

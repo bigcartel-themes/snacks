@@ -44,6 +44,17 @@ function toggleCategoryNavigation() {
   return false;
 }
 
+const shouldUseWebShare = () => {
+  const hasShareApi = 'share' in navigator;
+  
+  const isMobileUserAgentData = 'userAgentData' in navigator && navigator.userAgentData.mobile;
+  const isIOS = /iPhone|iPad|iPod/.test(navigator.userAgent) || 
+    (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  
+  return hasShareApi && (isMobileUserAgentData || isIOS || isAndroid);
+};
+
 $(function() {
   $('.navigation-header').click(function(e) {
     toggleCategoryNavigation();
@@ -117,10 +128,35 @@ $(function() {
   });
 });
 
+function updateShareableLink() {
+  fetch('/cart/shareable_link.json')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (!data?.shareable_link) {
+        throw new Error('Invalid response format');
+      }
+      const $linkElement = $('.copy-cart-link');
+      if ($linkElement.length) {
+        $linkElement.attr('href', data.shareable_link);
+        $linkElement.data('clipboard-text', data.shareable_link);
+      }
+    })
+    .catch(error => {
+      console.warn('Failed to update shareable cart link:', error);
+      $('.copy-cart-link').hide();
+    });
+}
+
 var processUpdate = function(input, item_id, new_val, cart) {
   if (new_val == 0) {
     $('.cart-item[data-item-id="'+item_id+'"]').slideUp('fast');
   }
+  updateShareableLink();
   updateTotals(cart);
   return false;
 }
@@ -231,6 +267,35 @@ $('body')
     Cart.updateFromForm("cart-form", function(cart) {
       processUpdate(input, item_id, 0, cart);
     });
+  })
+  .on('click', '.copy-cart-link', async function(e) {
+    e.preventDefault();
+    const link = this;
+    const originalText = $(link).text();
+    const text = $(link).data('clipboard-text');
+
+    if (shouldUseWebShare()) {
+      try {
+        await navigator.share({
+          title: 'Check out this cart I saved',
+          url: text
+        });
+      } catch (error) {
+        if (error.name !== 'AbortError') {
+          console.warn('Share failed:', error);
+        }
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(text);
+        $(link).text('Link copied!');
+        setTimeout(() => {
+          $(link).text(originalText);
+        }, 2000);
+      } catch (error) {
+        console.warn('Clipboard copy failed:', error);
+      }
+    }
   })
 
 var isGreaterThanZero = function(currentValue) {

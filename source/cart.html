@@ -50,6 +50,9 @@
               </li>
             {% endfor %}
           </ul>
+          {% if cart.shareable_link %}
+            <a href="{{ cart.shareable_link }}" class="copy-cart-link" data-clipboard-text="{{ cart.shareable_link }}">Share this cart</a>
+          {% endif %}
           <button type="submit" name="checkout" title="Checkout" class="button checkout-btn"><span class="underline">Checkout</span></button>
         </div>
         {% if errors != blank %}

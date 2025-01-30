@@ -55,6 +55,9 @@
             or theme.facebook_url != blank
             or theme.pinterest_url != blank
             or theme.youtube_url != blank
+            or theme.spotify_url != blank
+            or theme.linkedin_url != blank
+            or theme.twitch_url != blank
             or theme.tumblr_url != blank
             or theme.bandcamp_url != blank %}
             <nav aria-label="Social links">
@@ -93,6 +96,18 @@
 
                 {% if theme.youtube_url != blank %}
                   <li><a href="{{ theme.youtube_url }}">YouTube</a></li>
+                {% endif %}
+
+                {% if theme.spotify_url != blank %}
+                  <li><a href="{{ theme.spotify_url }}">Spotify</a></li>
+                {% endif %}
+
+                {% if theme.twitch_url != blank %}
+                  <li><a href="{{ theme.twitch_url }}">Twitch</a></li>
+                {% endif %}
+
+                {% if theme.linkedin_url != blank %}
+                  <li><a href="{{ theme.linkedin_url }}">LinkedIn</a></li>
                 {% endif %}
 
                 {% if theme.tumblr_url != blank %}

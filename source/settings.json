@@ -1,6 +1,6 @@
 {
   "name": "Snacks",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "images": [
     {
       "variable": "logo",
@@ -208,8 +208,9 @@
       "variable": "maintenance_message",
       "label": "Maintenance mode message",
       "type": "text",
-      "description": "A message visitors see when your shop is in Maintenance Mode",
-      "default": "We're working on our shop right now.<br /><br />Please check back soon."
+      "max_length": 2048,
+      "default": "We're working on our shop right now.<br /><br />Please check back soon.",
+      "description": "A message visitors see when your shop is in Maintenance Mode"
     },
     {
       "variable": "welcome_header",
@@ -237,7 +238,10 @@
       "type": "select",
       "options": "product_orders",
       "default": "position",
-      "description": "The order of products on the Home page"
+      "description": "The order of products on the Home page",
+      "requires": [
+        "featured_products gt 0"
+      ]
     },
     {
       "variable": "products_per_page",
@@ -253,7 +257,7 @@
       "type": "boolean",
       "default": true,
       "description": "Shows sold out product options in the Product page dropdowns",
-      "requires": "inventory"
+      "requires": ["inventory"]
     },
     {
       "variable": "money_format",
@@ -319,6 +323,24 @@
       "label": "YouTube URL",
       "type": "text",
       "description": "Ex: https://youtube.com/@BigCartelDotCom"
+    },
+    {
+      "variable": "spotify_url",
+      "label": "Spotify URL",
+      "type": "text",
+      "description": "Ex: https://open.spotify.com/artist/0gxy..."
+    },
+    {
+      "variable": "linkedin_url",
+      "label": "LinkedIn URL",
+      "type": "text",
+      "description": "Ex: https://linkedin.com/in/bigcartel"
+    },
+    {
+      "variable": "twitch_url",
+      "label": "Twitch URL",
+      "type": "text",
+      "description": "Ex: https://twitch.tv/username"
     },
     {
       "variable": "tumblr_url",

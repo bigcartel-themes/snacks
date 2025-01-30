@@ -40,14 +40,11 @@
         <div class="footer-divider"></div>
         <div class="footer-navigation">
           <ul class="footer-navigation-item footer-links">
-            <li><a href="/products" title="Products">Products</a></li>
+            <li><a href="/products" title="Products">{{ pages.products.name }}</a></li>
             {% for page in pages.all limit: theme.nav_items %}
               <li>{{ page | link_to }}</li>
             {% endfor %}
-            {% if store.website != blank %}
-              <li><a href="{{ store.website }}">Back to site</a></li>
-            {% endif %}
-            <li><a href="/contact" title="Contact">Contact</a></li>
+            <li><a href="/contact" title="Contact">{{ pages.contact.name }}</a></li>
           </ul>
           {% if theme.instagram_url != blank
             or theme.tiktok_url != blank
@@ -58,6 +55,9 @@
             or theme.facebook_url != blank
             or theme.pinterest_url != blank
             or theme.youtube_url != blank
+            or theme.spotify_url != blank
+            or theme.linkedin_url != blank
+            or theme.twitch_url != blank
             or theme.tumblr_url != blank
             or theme.bandcamp_url != blank %}
             <nav aria-label="Social links">
@@ -96,6 +96,18 @@
 
                 {% if theme.youtube_url != blank %}
                   <li><a href="{{ theme.youtube_url }}">YouTube</a></li>
+                {% endif %}
+
+                {% if theme.spotify_url != blank %}
+                  <li><a href="{{ theme.spotify_url }}">Spotify</a></li>
+                {% endif %}
+
+                {% if theme.twitch_url != blank %}
+                  <li><a href="{{ theme.twitch_url }}">Twitch</a></li>
+                {% endif %}
+
+                {% if theme.linkedin_url != blank %}
+                  <li><a href="{{ theme.linkedin_url }}">LinkedIn</a></li>
                 {% endif %}
 
                 {% if theme.tumblr_url != blank %}

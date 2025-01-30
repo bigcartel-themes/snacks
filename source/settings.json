@@ -238,7 +238,10 @@
       "type": "select",
       "options": "product_orders",
       "default": "position",
-      "description": "The order of products on the Home page"
+      "description": "The order of products on the Home page",
+      "requires": [
+        "featured_products gt 0"
+      ]
     },
     {
       "variable": "products_per_page",
@@ -254,7 +257,7 @@
       "type": "boolean",
       "default": true,
       "description": "Shows sold out product options in the Product page dropdowns",
-      "requires": "inventory"
+      "requires": ["inventory"]
     },
     {
       "variable": "money_format",

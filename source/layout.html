@@ -40,14 +40,11 @@
         <div class="footer-divider"></div>
         <div class="footer-navigation">
           <ul class="footer-navigation-item footer-links">
-            <li><a href="/products" title="Products">Products</a></li>
+            <li><a href="/products" title="Products">{{ pages.products.name }}</a></li>
             {% for page in pages.all limit: theme.nav_items %}
               <li>{{ page | link_to }}</li>
             {% endfor %}
-            {% if store.website != blank %}
-              <li><a href="{{ store.website }}">Back to site</a></li>
-            {% endif %}
-            <li><a href="/contact" title="Contact">Contact</a></li>
+            <li><a href="/contact" title="Contact">{{ pages.contact.name }}</a></li>
           </ul>
           {% if theme.instagram_url != blank
             or theme.tiktok_url != blank
